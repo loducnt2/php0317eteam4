@@ -1,17 +1,19 @@
 @extends('layouts.app')
+
+@section('title')  Shop DHQ  @endsection
 @section('content')
     <div class="bnr" id="home">
         <div  id="top" class="callbacks_container">
             <ul class="rslides" id="slider4">
                 <li>
-                    <img src="images/bnr-4.jpg" alt=""/>
+                    <img style="width: 1230px; height: 350px;" src="{{ url('images/bnr-4.jpg') }}" alt=""/>
                 </li>
                 <li>
-                    <img src="images/bnr-5.jpg" alt=""/>
+                    <img style="width: 1230px; height: 350px;" src="{{ url('images/bnr-5.jpg') }}" alt=""/>
                 </li>
-                <li>
-                    <img src="images/bnr-6.jpg" alt=""/>
+                    <img style="width: 1230px; height: 350px;" src="{{ url('images/bnr-6.jpg') }}" alt=""/>
                 </li>
+
             </ul>
         </div>
         <div class="clearfix"> </div>
@@ -88,11 +90,13 @@
                         @foreach($products as $item)
                             <div class="col-md-3 product-left">
                                 <div class="product-main simpleCart_shelfItem">
-                                    <a href="{{ url('client.product.single') }}" class="mask"><img class="img-responsive zoom-img" src="{{ asset('uploads/product/'.$item->thumbnail) }}" alt="{{ $item->title }}" width="125px" height="200px" /></a>
+                                    <a href="{{ url('product/detail/' . $item->id) }}" class="mask">
+                                        <img class="img-responsive zoom-img" style="width: 150px; height: 150px;" src="{{ asset('uploads/product/'.$item->thumbnail) }}" alt="{{ $item->title }}"  />
+                                    </a>
                                     <div class="product-bottom">
                                         <h3>{{ $item->name }}</h3>
                                         <p>Explore Now</p>
-                                        <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">{{ number_format($item->price) }} VNĐ</span></h4>
+                                        <h4><a class="item_add" href="{{ url('cart/add/'. $item->id ) }}"><i></i></a> <span class=" item_price">{{ number_format($item->price) }} VNĐ</span></h4>
                                     </div>
                                     <div class="srch">
                                         <span>- {{ $item->discount }}%</span>

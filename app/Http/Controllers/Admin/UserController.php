@@ -77,12 +77,12 @@ class UserController extends Controller
         }
         /*print_r($arrGr);*/
 
-        return view('admin.user.edit', [
+        return view('admin.user.edit',  [
             'user' => $user,
             'group' => $arrGr
             ]);
-
     }
+
 
     /**
      * Update the specified resource in storage.

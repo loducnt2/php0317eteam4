@@ -14,7 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'PHP0317E') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -40,7 +40,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
     <!--dropdown-->
     <script src="{{ asset('js/jquery.easydropdown.js') }}"></script>
+
     @yield('css')
+
+    @yield('js')
+
 
 </head>
 <body>
@@ -72,10 +76,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
             <div class="col-md-6 top-header-left">
                 <div class="cart box_1">
-                    <a href="checkout.html">
+                    {{--<a href="{{ Cart::total() }}">--}}
+                    <a href="{{ url('cart') }}">
                         <div class="total">
-                            <span class="simpleCart_total"></span></div>
-                        <img src="images/cart-1.png" alt="" />
+                            <span class="simpleCart_total">
+                                <?php $total = 0; ?>
+                                @if(Cart::content())
+                                    @foreach(Cart::content() as $item)
+                                        <?php $total += $item->price; ?>
+                                    @endforeach
+                                @endif
+                                {{ number_format($total) }}
+                            </span>
+                        </div>
+                        <a  href="{{ url('cart') }}"><img src="{{ url('images/cart-1.png') }}" alt="" /></a>
                     </a>
                     <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
                     <div class="clearfix"> </div>
@@ -88,7 +102,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--top-header-->
 <!--start-logo-->
 <div class="logo">
-    <a href="{{ url('home') }}"><h1>ĐHQ Shop</h1></a>
+    <a href="{{ url('home') }}">
+        <h1 style="color: red;">ĐHQ Shop</h1>
+    </a>
 </div>
 <!--start-logo-->
 <!--bottom-header-->
@@ -108,7 +124,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             <li><a href="products.html">Giày sandal nam</a></li>
                                             <li><a href="products.html">Giày bốt nam</a></li>
                                             <li><a href="products.html">Giày thể thao nam</a></li>
-                                            <li><a href="products.html">Giày nhựa nam</a></li>
                                             <li><a href="products.html">Giày nam khác</a></li>
                                         </ul>
                                     </div>
@@ -117,9 +132,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <ul>
                                             <li><a href="products.html">Dép xỏ ngón nam</a></li>
                                             <li><a href="products.html">Dép quai hậu nam</a></li>
-                                            <li><a href="products.html">Dép bít mũi nam</a></li>
                                             <li><a href="products.html">Dép nhựa nam</a></li>
-                                            <li><a href="products.html">Dép bitis nam</a></li>
                                             <li><a href="products.html">Dép nam khác</a></li>
                                         </ul>
                                     </div>
@@ -132,11 +145,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <div class="col1 me-one">
                                         <h4>Giày nữ</h4>
                                         <ul>
-                                            <li><a href="products.html">Giày bốt nữ</a></li>
-                                            <li><a href="products.html">Giày đế xuồng nữ</a></li>
-                                            <li><a href="products.html">Giày thể thao nữ</a></li>
-                                            <li><a href="products.html">Giày sandal nữ</a></li>
                                             <li><a href="products.html">Giày cao gót nữ</a></li>
+                                            <li><a href="products.html">Giày sandal nữ</a></li>
+                                            <li><a href="products.html">Giày bốt nữ</a></li>
+                                            <li><a href="products.html">Giày thể thao nữ</a></li>
                                             <li><a href="products.html">Giày nữ khác</a></li>
                                         </ul>
                                     </div>
@@ -144,18 +156,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <h4>Dép nữ</h4>
                                         <ul>
                                             <li><a href="products.html">Dép xỏ ngón nữ</a></li>
-                                            <li><a href="products.html">Dép quai hậu nữ</a></li>
-                                            <li><a href="products.html">Dép bít mũi nữ</a></li>
-                                            <li><a href="products.html">Dép nhựa nữ</a></li>
-                                            <li><a href="products.html">Dép bitis nữ</a></li>
                                             <li><a href="products.html">Dép mang trong nhà</a></li>
+                                            <li><a href="products.html">Dép nhựa nữ</a></li>
                                             <li><a href="products.html">Dép nữ khác</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="grid"><a href="#">Khuyến mại</a>
+                        <li class="grid"><a href="{{ url('discount') }}">Khuyến mại</a>
 
                         </li>
                         <li class="grid"><a href="#">Bán chạy</a>
@@ -169,12 +178,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="clearfix"> </div>
             </div>
+
             <div class="col-md-3 header-right">
                 <div class="search-bar">
-                    <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-                    <input type="submit" value="">
+                    {!! Form::open(['method' => 'GET', 'url' => 'product']) !!}
+                        <input type="text" name="keyword"
+                               value="@if(Request::has('keyword')) {{ Request::get('keyword') }} @else Search  @endif"
+                               onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                        <input type="submit" value="" />
+                    {!! Form::close() !!}
                 </div>
             </div>
+
             <div class="clearfix"> </div>
         </div>
     </div>
@@ -249,6 +264,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!--footer-end-->
 
-@yield('js')
+{{--@yield('js')--}}
 </body>
 </html>

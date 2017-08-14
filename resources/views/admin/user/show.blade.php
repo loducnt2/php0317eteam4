@@ -123,13 +123,14 @@
                                                 <td>{{ $item->gender }}</td>
 
                                                 <td>
+
                                                     {{ Form::open(['method' => 'DELETE', 'url' => 'admin/user/' . $item->id]) }}
 
-                                                    <a href="{{ url('admin/user/' . $item->id . '/edit') }}" class="btn">Edit</a> |
-                                                    {{--<a href="{{ url('admin/user/' . $item->id ) }}" class="btn">Delete</a>--}}
-                                                    <button type="submit" class="btn" onclick="return confirm('Bạn có chắc muốn xóa không');">Delete</button>
+                                                    <a href="{{ url('admin/user/' . $item->id . '/edit') }}">Edit</a>|
+                                                    <button type="submit"  onclick="return confirm('Bạn có chắc muốn xóa không');">Delete</button>
 
                                                     {{ Form::close() }}
+
                                                 </td>
                                             </tr>
                                         @endforeach

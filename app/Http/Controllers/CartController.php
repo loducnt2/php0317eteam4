@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Orderdetail;
-use Session;
 use App\Product;
+use Illuminate\Http\Request;
+use Cart;
+use Session;
 
-class OrderdetailController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,12 @@ class OrderdetailController extends Controller
      */
     public function index()
     {
-        $orderdetail = Orderdetail::all();
+        return view('cart.show');
+    }
 
-        return view('admin.orderdetail.show', ['orderdetail' => $orderdetail]);
+    public function checkout()
+    {
+        return view('cart.checkout');
     }
 
     /**
@@ -29,22 +31,7 @@ class OrderdetailController extends Controller
      */
     public function create()
     {
-        $products = Product::all();
-
-        return view('admin.orderdetail.create', ['products' => $products]);
-    }
-
-    public function khuyenmai()
-    {
-        $order = Orderdetail::select('orderdetails.*')
-            ->where('quantity','>', '2')
-            ->paginate(12);
-
-
-
-        return view('product.discount', [
-            'order' => $order
-        ]);
+        //
     }
 
     /**
@@ -53,18 +40,32 @@ class OrderdetailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
+        $product = Product::findOrFail($id);
 
-        $p = new Orderdetail();
-        $p->product_id = $request->product_id;
-        $p->price = $request->price;
-        $p->quantity = $request->quantity;
-        $p->order_id = $request->order_id;
-        $p->save();
+        /*echo "<pre>";
+        print_r($product->toArray());
+        die();*/
 
-        Session::flash('success', 'Thêm mới ảnh thành công');
-        return redirect('admin/orderdetail');
+        if ($product->id != null){
+            Cart::add([
+                [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'qty' => 1,
+                    'price' => $product->price,
+                    'options' => [
+                        'thumbnail' => $product->thumbnail
+                    ]
+                ]
+            ]);
+            Session::flash('success', 'Đặt hàng thành công!!!');
+        }else {
+            Session::flash('error', 'Sản phẩm đã hết hàng!!!');
+        }
+
+        return redirect()->back();
     }
 
     /**
@@ -109,11 +110,16 @@ class OrderdetailController extends Controller
      */
     public function destroy($id)
     {
-        $cate = Orderdetail::findOrFail($id);
-        $cate->delete();
+        $product = Product::findOrFail($id);
 
-        Session::flash('success', "Bạn đã xóa thành công!!!");
-
-        return redirect('admin/orderdetail');
+        if ($product->id != null){
+            foreach (Cart::content() as $key => $item){
+                if ($item->id == $product->id){
+                    Cart::remove($key);
+                    break;
+                }
+            }
+        }
+        return redirect()->back();
     }
 }

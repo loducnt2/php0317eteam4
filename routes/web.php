@@ -21,6 +21,15 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
+Route::get('cart', 'CartController@index');
+Route::get('cart/add/{id}', 'CartController@store');
+Route::get('cart/remove/{id}', 'CartController@destroy');
+Route::get('cart/checkout', 'CartController@checkout');
+
+Route::get('product/detail/{id}', 'ProductController@show');
+Route::get('category/{id}', 'ProductController@category');
+Route::get('discount', 'ProductController@khuyenmai');
+Route::get('product', 'ProductController@index');
 
 
 Route::group(['middleware'  => ['auth']], function (){
@@ -38,7 +47,7 @@ Route::group(['middleware'  => ['auth']], function (){
         Route::resource('admin/image', 'Admin\ImageController');
         Route::resource('admin/warrantydetail', 'Admin\WarrantydetailController');
         Route::resource('admin/warranty', 'Admin\WarrantyController');
-        
+
     });
 });
 
