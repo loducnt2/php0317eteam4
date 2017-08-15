@@ -30,6 +30,14 @@ Route::get('product/detail/{id}', 'ProductController@show');
 Route::get('category/{id}', 'ProductController@category');
 Route::get('discount', 'ProductController@khuyenmai');
 Route::get('product', 'ProductController@index');
+Route::get('all', 'ProductController@all');
+
+Route::resource('contact', 'ContactController');
+Route::get('introduce', 'ContactController@gioithieu');
+Route::get('blog', 'ContactController@blog');
+
+Route::resource('account', 'UserController');
+
 
 
 Route::group(['middleware'  => ['auth']], function (){

@@ -239,11 +239,10 @@
                     <i class="fa fa-user fa-3x"></i>
                 </a>
                 <!-- dropdown user-->
-                @if(isset($user))
-                    @foreach($user as $item)
+
                         <ul class="dropdown-menu dropdown-user">
 
-                            <li><a href="{{ url('admin/user/' . $item->id . '/edit') }}"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
                             </li>
 
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
@@ -254,8 +253,7 @@
                             </li>
 
                         </ul>
-                    @endforeach
-                @endif
+
                 <!-- end dropdown-user -->
             </li>
             <!-- end main dropdown -->

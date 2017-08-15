@@ -107,6 +107,19 @@ class ProductController extends Controller
         ]);
     }
 
+    public function all()
+    {
+        $products = Product::all();
+
+        /*echo "<pre>";
+        print_r($products->toArray());
+        die();*/
+
+        return view('product.all', [
+            'products' => $products
+        ]);
+    }
+
     public function category($id)
     {
         $products = Product::select('products.*')

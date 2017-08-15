@@ -1,0 +1,38 @@
+
+.wrapper {
+	width: 85%;
+	height: 1110px;
+	margin: auto;
+	background-color: rgba(46, 37, 36, 0.57);
+	border: 1px solid white;
+}
+
+.phan1{
+	width: 95%;
+	height: 212px;
+	margin: auto;
+}
+
+.phan2{
+	width: 95%;
+	height: 160px;
+	margin: auto;
+}
+a{
+	color: pink;
+}
+
+.phan3{
+	width: 95%;
+	height: 225px;
+	margin: auto;
+}
+.phan3 ul li {
+	list-style: none;
+}
+
+.phan4{
+	width: 95%;
+	height: 440px;
+	margin: auto;
+}

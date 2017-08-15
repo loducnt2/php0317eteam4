@@ -21,7 +21,6 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                {{--{!! Form::open(['type' => 'POST', 'url' => 'admin/category', 'role' => 'form']) !!}--}}
                                 {!! Form::open(['type' => 'POST', 'url' => 'admin/category', 'role' => 'form']) !!}
 
                                     <div class="form-group">

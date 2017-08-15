@@ -14,6 +14,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Login -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- End - Login -->
+
     <title>@yield('title')</title>
 
     <!-- Styles -->
@@ -43,9 +48,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     @yield('css')
 
-    @yield('js')
-
-
 </head>
 <body>
 
@@ -74,6 +76,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="clearfix"></div>
                 </div>
             </div>
+
+
             <div class="col-md-6 top-header-left">
                 <div class="cart box_1">
                     {{--<a href="{{ Cart::total() }}">--}}
@@ -100,6 +104,44 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 <!--top-header-->
+
+<!--Login-->
+    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+        <!-- Left Side Of Navbar -->
+        <ul class="nav navbar-nav">
+            &nbsp;
+        </ul>
+
+        <!-- Right Side Of Navbar -->
+        <ul class="nav navbar-nav navbar-right">
+            <!-- Authentication Links -->
+            @if (Auth::guest())
+                <li><a href="{{ route('login') }}">Login</a></li>
+                <li><a href="{{ route('register') }}">Register</a></li>
+            @else
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();" style="color: white;">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            @endif
+        </ul>
+    </div>
+<!--end - login-->
 <!--start-logo-->
 <div class="logo">
     <a href="{{ url('home') }}">
@@ -108,17 +150,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!--start-logo-->
 <!--bottom-header-->
-<div class="header-bottom">
+<div class="header-bottom" style="    border-bottom: 3px solid #e05b5b; margin-bottom: 20px;">
     <div class="container">
         <div class="header">
             <div class="col-md-9 header-left">
                 <div class="top-nav">
                     <ul class="memenu skyblue"><li class="active"><a href="{{ url('home') }}">Home</a></li>
-                        <li class="grid"><a href="#">Nam</a>
+                        <li class="grid"  style="color: #100802;"><a href="#">Nam</a>
                             <div class="mepanel">
                                 <div class="row">
                                     <div class="col1 me-one">
-                                        <h4>Giày Nam</h4>
+                                        <h4 >Giày Nam</h4>
                                         <ul>
                                             <li><a href="products.html">Giày tây</a></li>
                                             <li><a href="products.html">Giày sandal nam</a></li>
@@ -170,9 +212,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li class="grid"><a href="#">Bán chạy</a>
 
                         </li>
-                        <li class="grid"><a href="typo.html">Blog</a>
+                        <li class="grid"><a href="{{ url('blog') }}">Blog</a>
                         </li>
-                        <li class="grid"><a href="contact.html">Contact</a>
+                        <li class="grid"><a href="{{ url('contact/create') }}">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -180,7 +222,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
 
             <div class="col-md-3 header-right">
-                <div class="search-bar">
+                <div class="search-bar" style="border: 1px solid #e05b5b;">
                     {!! Form::open(['method' => 'GET', 'url' => 'product']) !!}
                         <input type="text" name="keyword"
                                value="@if(Request::has('keyword')) {{ Request::get('keyword') }} @else Search  @endif"
@@ -201,29 +243,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <!--product-end-->
 <!--information-starts-->
-<div class="information">
+<div class="information" style=" background: #f6eddc;">
     <div class="container">
         <div class="infor-top">
             <div class="col-md-3 infor-left">
-                <h3>Follow Us</h3>
+                <h3 style="    color: #1bccf7;">Follow Us</h3>
                 <ul>
-                    <li><a href="#"><span class="fb"></span><h6>Facebook</h6></a></li>
-                    <li><a href="#"><span class="twit"></span><h6>Twitter</h6></a></li>
-                    <li><a href="#"><span class="google"></span><h6>Google+</h6></a></li>
+                    <li><a href="https://www.facebook.com"><span class="fb"></span><h6>Facebook</h6></a></li>
+                    <li><a href="https://twitter.com/"><span class="twit"></span><h6>Twitter</h6></a></li>
+                    <li><a href="https://plus.google.com/"><span class="google"></span><h6>Google+</h6></a></li>
                 </ul>
             </div>
             <div class="col-md-3 infor-left">
-                <h3>Information</h3>
+                <h3 style="    color: #1bccf7;">Information</h3>
                 <ul>
-                    <li><a href="#"><p>Specials</p></a></li>
-                    <li><a href="#"><p>New Products</p></a></li>
-                    <li><a href="#"><p>Our Stores</p></a></li>
-                    <li><a href="contact.html"><p>Contact Us</p></a></li>
-                    <li><a href="#"><p>Top Sellers</p></a></li>
+                    <li><a href="{{ url('all') }}"><p>New Products</p></a></li>
+                    <li><a href="{{ url('introduce') }}"><p>Our Stores</p></a></li>
+                    <li><a href="{{ url('contact/create') }}"><p>Contact Us</p></a></li>
+                    <li><a href="{{ url('discount') }}"><p>Top Sellers</p></a></li>
                 </ul>
             </div>
             <div class="col-md-3 infor-left">
-                <h3>My Account</h3>
+                <h3 style="    color: #1bccf7;">My Account</h3>
                 <ul>
                     <li><a href="account.html"><p>My Account</p></a></li>
                     <li><a href="#"><p>My Credit slips</p></a></li>
@@ -233,7 +274,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </ul>
             </div>
             <div class="col-md-3 infor-left">
-                <h3>Store Information</h3>
+                <h3 style="    color: #1bccf7;">Store Information</h3>
                 <h4>The company name,
                     <span>Lorem ipsum dolor,</span>
                     Glasglow Dr 40 Fe 72.</h4>
@@ -246,13 +287,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!--information-end-->
 <!--footer-starts-->
-<div class="footer">
+<div class="footer" style="background: #573c27;">
     <div class="container">
         <div class="footer-top">
             <div class="col-md-6 footer-left">
                 <form>
-                    <input type="text" value="Enter Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
-                    <input type="submit" value="Subscribe">
+                    <input type="text" style="color: white; border: 1px solid white" value="Enter Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
+                    <input type="submit" value="Subscribe" style="color: white; border: 1px solid white">
                 </form>
             </div>
             <div class="col-md-6 footer-right">
@@ -264,6 +305,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!--footer-end-->
 
+@yield('js')
 {{--@yield('js')--}}
 </body>
 </html>

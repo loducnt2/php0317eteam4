@@ -3,7 +3,7 @@
 @section('title')  Shop DHQ  @endsection
 @section('content')
     <div class="bnr" id="home">
-        <div  id="top" class="callbacks_container">
+        <div  id="top" class="callbacks_container" >
             <ul class="rslides" id="slider4">
                 <li>
                     <img style="width: 1230px; height: 350px;" src="{{ url('images/bnr-4.jpg') }}" alt=""/>
