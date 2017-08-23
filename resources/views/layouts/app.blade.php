@@ -145,7 +145,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--start-logo-->
 <div class="logo">
     <a href="{{ url('home') }}">
-        <h1 style="color: red;">ĐHQ Shop</h1>
+        <h1 style="color: red;">Cud Shop</h1>
     </a>
 </div>
 <!--start-logo-->
@@ -162,20 +162,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <div class="col1 me-one">
                                         <h4 >Giày Nam</h4>
                                         <ul>
-                                            <li><a href="products.html">Giày tây</a></li>
-                                            <li><a href="products.html">Giày sandal nam</a></li>
-                                            <li><a href="products.html">Giày bốt nam</a></li>
-                                            <li><a href="products.html">Giày thể thao nam</a></li>
-                                            <li><a href="products.html">Giày nam khác</a></li>
+
+                                            @foreach(Helper::category() as $item)
+                                                <li><a href="{{ url('category/'. $item->id) }}">{{ $item->title }}</a></li>
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                     <div class="col1 me-one">
                                         <h4>Dép nam</h4>
                                         <ul>
-                                            <li><a href="products.html">Dép xỏ ngón nam</a></li>
-                                            <li><a href="products.html">Dép quai hậu nam</a></li>
-                                            <li><a href="products.html">Dép nhựa nam</a></li>
-                                            <li><a href="products.html">Dép nam khác</a></li>
+                                            @foreach(Helper::category2() as $item)
+                                                <li><a href="{{ url('category/'. $item->id) }}">{{ $item->title }}</a></li>
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                 </div>
@@ -187,20 +187,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <div class="col1 me-one">
                                         <h4>Giày nữ</h4>
                                         <ul>
-                                            <li><a href="products.html">Giày cao gót nữ</a></li>
-                                            <li><a href="products.html">Giày sandal nữ</a></li>
-                                            <li><a href="products.html">Giày bốt nữ</a></li>
-                                            <li><a href="products.html">Giày thể thao nữ</a></li>
-                                            <li><a href="products.html">Giày nữ khác</a></li>
+                                            @foreach(Helper::category3() as $item)
+                                                <li><a href="{{ url('category/'. $item->id) }}">{{ $item->title }}</a></li>
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                     <div class="col1 me-one">
                                         <h4>Dép nữ</h4>
                                         <ul>
-                                            <li><a href="products.html">Dép xỏ ngón nữ</a></li>
-                                            <li><a href="products.html">Dép mang trong nhà</a></li>
-                                            <li><a href="products.html">Dép nhựa nữ</a></li>
-                                            <li><a href="products.html">Dép nữ khác</a></li>
+                                            @foreach(Helper::category4() as $item)
+                                                <li><a href="{{ url('category/'. $item->id) }}">{{ $item->title }}</a></li>
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                 </div>
@@ -209,7 +208,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li class="grid"><a href="{{ url('discount') }}">Khuyến mại</a>
 
                         </li>
-                        <li class="grid"><a href="#">Bán chạy</a>
+                        <li class="grid"><a href="{{ url('banchay') }}">Bán chạy</a>
 
                         </li>
                         <li class="grid"><a href="{{ url('blog') }}">Blog</a>
@@ -266,7 +265,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="col-md-3 infor-left">
                 <h3 style="    color: #1bccf7;">My Account</h3>
                 <ul>
-                    <li><a href="account.html"><p>My Account</p></a></li>
+                    @if(isset(Auth::user()->id))
+                        <li><a href="{{ url('account/detail/' . Auth::user()->id) }}"><p>My Account</p></a></li>
+                    @endif
+
                     <li><a href="#"><p>My Credit slips</p></a></li>
                     <li><a href="#"><p>My Merchandise returns</p></a></li>
                     <li><a href="#"><p>My Personal info</p></a></li>

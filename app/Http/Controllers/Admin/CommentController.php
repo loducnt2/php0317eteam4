@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Comment;
 use Illuminate\Http\Request;
-use App\User;
-use Session;
+use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users =  User::all();
+        $cmt = Comment::all();
 
-        return view('account.show', ['users' => $users]);
+        return view('admin.comment.show', ['cmt' => $cmt]);
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('account.edit');
+        //
     }
 
     /**
@@ -38,7 +38,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -49,15 +49,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $users = User::findOrFail($id);
-
-        /*echo "<pre>";
-        print_r($users->toArray());
-        die();*/
-
-        return view('account.show', [
-            'users' => $users
-        ]);
+        //
     }
 
     /**
@@ -68,9 +60,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $accounts = User::findOrFail($id);
-
-        return view('account.edit', ['accounts' => $accounts]);
+        //
     }
 
     /**
@@ -93,6 +83,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cmt = Comment::findOrFail($id);
+        $cmt->delete();
+
+        Session::flash('success', "Bạn đã xóa thành công");
+        return redirect('admin/comment');
     }
 }

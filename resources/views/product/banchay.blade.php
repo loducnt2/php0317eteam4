@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Category @endsection
+@section('title') Bán chạy @endsection
 
 @section('content')
     <div class="breadcrumbs">
@@ -8,35 +8,13 @@
             <div class="breadcrumbs-main">
                 <ol class="breadcrumb">
                     <li><a href="{{ url('home') }}" style="color: red;">Home</a></li>
-                    <li class="active" style="color: #17bf08;">Category</li>
+                    <li class="active" style="color: #17bf08;">Bán chạy</li>
                 </ol>
             </div>
         </div>
     </div>
 
-    {{--@if (isset($products)){
-        @foreach($products as $key => $item)
-            <h2 style="color: #17bf08; text-align: center; ">{{ $item->category->title }}</h2>
-        @endforeach
-    @endif
-
-    @if (!isset($products)){
-        <h2 style="color: #17bf08; text-align: center; ">Sản phẩm hiện hết hàng !!!</h2>
-    @endif--}}
-
-    <?php
-/*            if (isset($products)){
-                foreach ($products as $item){
-                    echo $item->category->title;
-                }
-            }else{
-                echo "Sản phẩm hiện hết hàng !!!";
-            }
-    */?>
-
-
-
-
+    <h2 style="color: #17bf08; text-align: center; ">BÁN CHẠY</h2>
 
     <div class="product">
         <div class="container">
@@ -63,12 +41,12 @@
 
                             @if($key > 0 && (($key + 1) % 4) == 0)
                                 <div class="clearfix"></div>
-                                    </div>
+                </div>
 
-                                <div class="product-one">
-                            @endif
+                <div class="product-one">
+                    @endif
 
-                        @endforeach
+                    @endforeach
                     @endif
                     <div class="clearfix"></div>
                 </div>

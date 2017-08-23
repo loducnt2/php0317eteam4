@@ -14,6 +14,8 @@
         </div>
     </div>
 
+    <h2 style="color: #17bf08; text-align: center; ">KHUYẾN MẠI</h2>
+
     <div class="product">
         <div class="container">
             <div class="product-top">

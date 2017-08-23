@@ -113,12 +113,23 @@
                                     <li class="subitem1"><a href="#">{{ $product->description }}</a></li>
                                 </ul>
                             </li>
-                            <li class="item2"><a href="#"><img src="{{ url('images/arrow.png') }}" alt="">Additional information</a>
+
+                            <li class="item2"><a href="#"><img src="{{ url('images/arrow.png') }}" alt="">Supplier information</a>
                                 <ul>
-                                    <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</a></li>
-                                    <li class="subitem3"><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </a></li>
+                                    <li class="subitem2" style="color: white">Sản phẩm được sản xuất bởi công ty</li>
+                                    {{--@if(isset($product))
+                                        @foreach($product as $it)
+                                            <li class="subitem2" style="color: white"><a href="{{ url('supplier/detail/' . $it->id) }}" style="color: green; text-align: center">{{ $it->supplier->name }}</a></li>
+                                        @endforeach
+                                    @endif--}}
+                                    {{--<li class="subitem2" style="color: white">
+                                        <a href="{{ url('supplier/detail/' . $supplier->id) }}" style="color: green; text-align: center">
+                                            {{ $product->supplier->name }}
+                                        </a>
+                                    </li>--}}
                                 </ul>
                             </li>
+
                         </ul>
                     </div>
 
@@ -147,6 +158,36 @@
                                 {{ $related->links() }}
                             </div>
                         </div>
+                    </div>
+
+                    <div class="tabs">
+                            <h3 style="color: #17bf08;">1. Chi tiết sản phẩm</h3>
+                            {{ $product->description }}
+
+                            <h3 style="color: #17bf08;">2. Đánh giá phản hồi</h3>
+
+                            <table border="1px" width="80%">
+                                <tr style="background: #cccccc">
+                                    <td >Người mua</td>
+                                    <td >Phản hồi</td>
+                                </tr>
+
+                                {{--@if(isset($comment))
+                                    @foreach($comment as $ite)
+                                        <tr>
+                                            <td>{{ $ite->content }}</td>
+                                            <td>{{ $ite->content }}</td>
+                                        </tr>
+                                    @endforeach
+                                @endif--}}
+
+                            </table>
+
+                            <b>Bạn có câu hỏi với sản phẩm này? Đặt câu hỏi với shop.</b><br>
+                            <form>
+                                <textarea rows="3" cols="100"></textarea>
+                                <input type="submit" name="btnsubmit" value="Gửi">
+                            </form>
                     </div>
                 </div>
                 <div class="clearfix"> </div>

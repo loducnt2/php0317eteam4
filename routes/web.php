@@ -21,23 +21,29 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
+
+Route::get('account/detail/{id}', 'UserController@show');      /*----------------Chưa--------------*/
+
 Route::get('cart', 'CartController@index');
 Route::get('cart/add/{id}', 'CartController@store');
 Route::get('cart/remove/{id}', 'CartController@destroy');
 Route::get('cart/checkout', 'CartController@checkout');
+Route::post('cart/checkout', 'CartController@save');
 
 Route::get('product/detail/{id}', 'ProductController@show');
 Route::get('category/{id}', 'ProductController@category');
 Route::get('discount', 'ProductController@khuyenmai');
-Route::get('product', 'ProductController@index');
+Route::get('banchay', 'ProductController@banchay');
+Route::get('product', 'ProductController@index');   /*--------Tìm kiếm----------*/
 Route::get('all', 'ProductController@all');
 
 Route::resource('contact', 'ContactController');
 Route::get('introduce', 'ContactController@gioithieu');
-Route::get('blog', 'ContactController@blog');
+Route::get('blog', 'ContactController@blog');                           /* chưa content*/
 
-Route::resource('account', 'UserController');
 
+
+/*Route::get('supplier/detail/{id}', 'ProductController@showsup');*/
 
 
 Route::group(['middleware'  => ['auth']], function (){
@@ -55,6 +61,8 @@ Route::group(['middleware'  => ['auth']], function (){
         Route::resource('admin/image', 'Admin\ImageController');
         Route::resource('admin/warrantydetail', 'Admin\WarrantydetailController');
         Route::resource('admin/warranty', 'Admin\WarrantyController');
+
+        Route::resource('admin/comment', 'Admin\CommentController');
 
     });
 });

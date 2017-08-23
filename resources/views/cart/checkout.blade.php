@@ -20,8 +20,15 @@
             <div class="ckeck-top heading">
                 <h2 style="color: #17bf08;">CHECKOUT</h2>
             </div>
+
+            @if(Session::has('error'))
+                <div class="alert alert-warning">
+                    <strong>Warning! </strong> {{ Session::get('error') }}
+                </div>
+            @endif
+
             <div class="ckeckout-top">
-                <div class="cart-items">
+                <br class="cart-items">
                     <h3 style="color: greenyellow;">1. My Shopping Bag</h3>
                     <script>$(document).ready(function(c) {
                             $('.close1').on('click', function(c){
@@ -86,25 +93,72 @@
                         </ul>
                     </div>
 
-                    <div class="in-check" >
+
+                    <h3 style="color: greenyellow; font-family: FontAwesome; font-weight: bold">2. Thông tin người nhận</h3>
+                    {!! Form::open(['method' => 'POST', 'url' => 'cart/checkout']) !!}
+
+                        <div class="form-group">
+                            <label class="control-label col-md-12" for="name">Họ tên</label>
+                            <div class="col-md-5">
+                                {!! Form::text('name', null, ["class" => "form-control", "id" => "name", "placeholder" => "Enter name"]) !!}
+                                {!! $errors->first('name', '<span id="name-error" class="help-block help-block-error">:message</span>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-12" for="email">Email</label>
+                            <div class="col-md-5">
+                                {!! Form::text('email', null, ["class" => "form-control", "id" => "email", "placeholder" => "Enter email"]) !!}
+                                {!! $errors->first('email', '<span id="email-error" class="help-block help-block-error">:message</span>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-12"  for="phone">Số điện thoại</label>
+                            <div class="col-md-5">
+                                {!! Form::text('phone', null, ["class" => "form-control", "id" => "phone", "placeholder" => "Enter phone"]) !!}
+                                {!! $errors->first('phone', '<span id="phone-error" class="help-block help-block-error">:message</span>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-12"  for="address">Địa chỉ</label>
+                            <div class="col-md-5">
+                                {!! Form::text('address', null, ["class" => "form-control", "id" => "address", "placeholder" => "Enter address"]) !!}
+                                {!! $errors->first('address', '<span id="address-error" class="help-block help-block-error">:message</span>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-12"  for="note">Ghi chú</label>
+                            <div class="col-md-10">
+                                {!! Form::textarea('note', null, ['rows' => 5, 'cols' => '150', "class" => "form-control", "id" => "note", "placeholder" => "Enter note"]) !!}
+                                {!! $errors->first('note', '<span id="note-error" class="help-block help-block-error">:message</span>') !!}
+                            </div>
+                        </div>
+
+                        <button class="control-label col-md-1"  type="submit" class="btn btn-default">Đặt hàng</button>
+                    {!! Form::close() !!}
+
+                    {{--<div class="in-check" >
                         <h3 style="color: greenyellow; font-family: FontAwesome; font-weight: bold">2. Thông tin người nhận</h3>
-                        <form>
+                        {!! Form::open(['method' => 'POST', 'url' => 'cart/checkout']) !!}
                             <p style="margin-left: 25px;">Họ tên</p>
-                            <input type="text" name="name" style="width: 500px; margin-left: 25px;" /><br><br>
+                            {!! Form::text('name', null, null) !!}
+                            <br><br>
                             <p style="margin-left: 25px;">Số điện thoại</p>
-                            <input type="text" name="phone" style="width: 500px; margin-left: 25px;" /><br><br>
+                            {!! Form::text('phone', null, null) !!}
                             <p style="margin-left: 25px;">Email</p>
-                            <input type="text" name="email" style="width: 500px; margin-left: 25px;" /><br><br>
+                            {!! Form::text('email', null, null) !!}
                             <p style="margin-left: 25px;">Địa chỉ</p>
-                            <input type="text" name="address" style="width: 500px; margin-left: 25px;" /><br><br>
+                            {!! Form::text('address', null, null) !!}
                             <h4><b>Thông tin thêm</b></h4>
                             <p style="margin-left: 25px;">Ghi chú đơn hàng</p>
-                            <textarea style="margin-left: 25px;"  rows="5" cols="150"></textarea>
+                            {!! Form::textarea('note', null, ['rows' => 5, 'cols' => 150]) !!}
 
-                            <input style="margin-left: 25px;" type="submit" name="btnSubmit" value="Đặt hàng" />
-                        </form>
-                    </div>
-
+                            <input  type="submit" name="btnSubmit" value="Đặt hàng" />
+                        {!! Form::close() !!}
+                    </div>--}}
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -32,6 +33,13 @@ class HomeController extends Controller
         die();*/
         $this->_data['products'] = Product::all();
 
+        $this->_data['pro'] = Product::select('products.*')
+            ->where('discount','>', '0')
+            ->paginate(12);
+
         return view('home', $this->_data);
     }
+
+
+
 }

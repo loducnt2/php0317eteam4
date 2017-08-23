@@ -5,11 +5,10 @@
 @section('content')
     <style>
         #DivForm{
-            width:50%;
+            width:70%;
             height:auto;
             background-color:#ccc;
             margin:auto;
-            padding-left:70px;
             margin-top:20px;
             margin-bottom:20px;
         }
@@ -39,48 +38,29 @@
         }
     </style>
 
-
-    <a href="#"><h3 style="text-align: center; color: red;">Log out</h3></a>
-
     <div id="DivForm">
-        <form id="Form" action="#" method="post">
-            <h2>MY ACCOUNT</h2>
+            <h2>USER PROFILE</h2>
+            <table border="1px" style="width: 100%;height: 130px;">
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Last Name</td>
+                    <td>First Name</td>
+                    <td>Phone</td>
+                    <td>Address</td>
+                    <td>Gender</td>
+                </tr>
 
-            <label for="txtFirstName">First Name : </label>
-            <input type="text" id="txtFirstName" name=""><br><br>
-            <p id="FirstNameError" style="color:red; margin-left: 50px; "></p>
+                        <tr>
+                            <td>{{ $users->name }}</td>
+                            <td>{{ $users->email }}</td>
+                            <td>{{ $users->last_name }}</td>
+                            <td>{{ $users->first_name }}</td>
+                            <td>{{ $users->phone }}</td>
+                            <td>{{ $users->address }}</td>
+                            <td>{{ $users->gender }}</td>
+                        </tr>
 
-            <label for="txtLastName">Last Name: </label>
-            <input type="text" id="txtLastName" name=""><br><br>
-            <p id="LastNameError" style="color:red"></p>
-
-            <label for="txtEmail">Email : </label>
-            <input type="text" id="txtEmail" name=""><br><br>
-            <p id="emailError" style="color:red"></p>
-
-            <label for="phone">Phone : </label>
-            <input type="text" id="txtSoDt" name=""><br><br>
-            <p id="soDtError" style="color:red"></p>
-
-            <label for="txtDiaChi">Address : </label>
-            <input type="text" id="txtDiaChi" name=""><br><br>
-            <p id="diaChiError" style="color:red"></p>
-
-            <label for="txtEmail">Gender : </label>
-            <input type="text" id="txtGender" name=""><br><br>
-            <p id="emailError" style="color:red"></p>
-
-            <label for="txtUserName">User Name : </label>
-            <input type="text" id="txtUserName" name=""><br><br>
-            <p id="userNameError" style="color:red"></p>
-
-            <label for="txtPassWord">PassWord : </label>
-            <input type="password" id="txtPassWord" name=""><br><br>
-            <p id="passWordError" style="color:red"></p>
-
-            <input type="button" id="btnRegister" value="Register"  />
-            <input type="reset" id="Cancel"  value="Cancel"/>
-
-        </form>
+            </table>
     </div>
 @endsection

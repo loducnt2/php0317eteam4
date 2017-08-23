@@ -80,6 +80,15 @@
     </div>
     <!--about-end-->
     <!--product-starts-->
+    <h2 style="color: #583d28;
+                font: 700 30px/30px 'Raleway', sans-serif;
+                margin-left: 118px;
+                border: 1px solid red;
+                border-width: 5px;
+                padding: 5px;
+                background: #f6eddc;">
+        * All Products
+    </h2>
 
     <div class="product">
         <div class="container">
@@ -100,6 +109,48 @@
                                     </div>
                                     <div class="srch">
                                         <span>- {{ $item->discount }}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <h2 style="color: #583d28;
+                font: 700 30px/30px 'Raleway', sans-serif;
+                margin-left: 118px;
+                border: 1px solid red;
+                border-width: 5px;
+                padding: 5px;
+                background: #f6eddc;">
+        * Best Sellers
+    </h2>
+
+    <div class="product">
+        <div class="container">
+            <div class="product-top">
+
+                <div class="product-one">
+                    @if(isset($pro))
+                        @foreach($pro as $it)
+                            <div class="col-md-3 product-left">
+                                <div class="product-main simpleCart_shelfItem">
+                                    <a href="{{ url('product/detail/' . $it->id) }}" class="mask">
+                                        <img class="img-responsive zoom-img" style="width: 150px; height: 150px;" src="{{ asset('uploads/product/'.$it->thumbnail) }}" alt="{{ $it->title }}"  />
+                                    </a>
+                                    <div class="product-bottom">
+                                        <h3>{{ $it->name }}</h3>
+                                        <p>Explore Now</p>
+                                        <h4><a class="item_add" href="{{ url('cart/add/'. $it->id ) }}"><i></i></a> <span class=" item_price">{{ number_format($it->price) }} VNĐ</span></h4>
+                                    </div>
+                                    <div class="srch">
+                                        <span>- {{ $it->discount }}%</span>
                                     </div>
                                 </div>
                             </div>

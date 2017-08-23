@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\OrderController;
+use App\Order;
+use App\Orderdetail;
 use App\Product;
 use Illuminate\Http\Request;
 use Cart;
 use Session;
+use Auth;
 
 class CartController extends Controller
 {
@@ -22,6 +26,65 @@ class CartController extends Controller
     public function checkout()
     {
         return view('cart.checkout');
+    }
+
+
+    public function save(Request $request){
+        if(Cart::content()->count() <= 0) {
+            Session::flash('error', 'Không có san phẩm nào trong giỏ hàng - Không thể đặt hàng!!!');
+
+            return redirect()->back();
+        }
+
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'note' => 'required'
+        ]);
+        // lat lam theo cho cac truong khac vao no se tu bat loi em nhe
+
+        //luu thong thong tin nguoi nhan vao bang order
+        $order = new Order();
+        $order->name = $request->name;
+        $order->email = $request->email;
+        $order->phone = $request->phone;
+        $order->address = $request->address;
+        $order->note = $request->note;
+        $order->amount = 0;
+        $order->status = 1;
+
+        if(Auth::check()) {
+            $order->user_id = Auth::user()->id;
+        }
+
+        $order->save();
+
+        //luu thong tin chi tiet hoa don
+        $totalAmount = 0;
+        foreach (Cart::content() as $key => $item){
+            $orderDetail = new Orderdetail();
+            $orderDetail->order_id = $order->id;
+            $orderDetail->product_id = $item->id;
+            $orderDetail->price = $item->price;
+            $orderDetail->quantity = $item->qty;
+            $orderDetail->save();
+
+            $totalAmount += ($item->price * $item->qty);
+        }
+
+        $order->amount = $totalAmount;
+        $order->save();
+
+        //xoa gio hang
+        Cart::destroy();
+
+        //tao message
+        Session::flash('success', 'Đặt hàng thành công!!!');
+
+        //chuyen ve trang nao do, co the la trang chu
+        return redirect('/');
     }
 
     /**
@@ -49,7 +112,7 @@ class CartController extends Controller
         die();*/
 
         if ($product->id != null){
-            Cart::add([
+            Cart::add(
                 [
                     'id' => $product->id,
                     'name' => $product->name,
@@ -59,8 +122,8 @@ class CartController extends Controller
                         'thumbnail' => $product->thumbnail
                     ]
                 ]
-            ]);
-            Session::flash('success', 'Đặt hàng thành công!!!');
+            );
+            Session::flash('success', 'Them moi san pham vao gio hang thành công!!!');
         }else {
             Session::flash('error', 'Sản phẩm đã hết hàng!!!');
         }

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use Session;
+use App\Comment;
 
-class UserController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users =  User::all();
-
-        return view('account.show', ['users' => $users]);
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('account.edit');
+        //
     }
 
     /**
@@ -38,7 +35,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -49,15 +46,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $users = User::findOrFail($id);
 
-        /*echo "<pre>";
-        print_r($users->toArray());
-        die();*/
-
-        return view('account.show', [
-            'users' => $users
-        ]);
     }
 
     /**
@@ -68,9 +57,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $accounts = User::findOrFail($id);
-
-        return view('account.edit', ['accounts' => $accounts]);
+        //
     }
 
     /**

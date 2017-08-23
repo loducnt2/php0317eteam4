@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Image;
 use Illuminate\Http\Request;
 use App\Product;
-
+use App\Comment;
+use App\Supplier;
+use App\User;
 
 class ProductController extends Controller
 {
@@ -67,6 +69,7 @@ class ProductController extends Controller
 
         $cate_id = $product->category->id;
 
+            /*PHẦN  HIỆN  RA CÁC SẢN PHẨM LIÊN QUAN */
         $related = Product::select('products.*')
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->where('categories.id', $cate_id)
@@ -74,20 +77,43 @@ class ProductController extends Controller
             /*->get();*/
             ->paginate(2);
 
-       /* echo "<pre>";
-        print_r($related->toArray());
+
+        $cmt = Comment::findOrFail($id);
+
+        $cmt_id = $cmt->product->id;
+
+        $comment = Comment::select('comments.*')
+            ->join('products', 'comments.product_id', '=', 'products.id')
+            ->where('products.id', $cmt_id)
+            ->where('comments.product_id', '=', $id);
+
+        /*echo "<pre>";
+        print_r($comment);
             die();*/
 
         /*echo "<pre>";
         print_r($image->toArray());
         die();*/
 
+        /*$supplier = Supplier::findOrFail($id);*/
+
+
         return view('product.detail', [
             'product' => $product,
-            'related' => $related
+            'related' => $related,
+            'comment' => $comment,/*
+            'supplier' => $supplier*/
         ]);
     }
 
+    /*public function showsup($id)
+    {
+        $supplier = Supplier::findOrFail($id);
+
+        return view('supplier.detail', [
+            'supplier' => $supplier
+        ]);
+    }*/
     /**
      * Show the form for editing the specified resource.
      *
@@ -103,6 +129,18 @@ class ProductController extends Controller
 
 
         return view('product.discount', [
+            'products' => $products
+        ]);
+    }
+
+    public function banchay()
+    {
+        $products = Product::select('products.*')
+            ->join('orderdetails', 'products.id', '=', 'orderdetails.product_id')
+            ->where('orderdetails.quantity','>', '1')
+            ->paginate(12);
+
+        return view('product.banchay', [
             'products' => $products
         ]);
     }

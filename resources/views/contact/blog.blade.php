@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
-@section('title') Contact @endsection
+@section('title') Blog @endsection
+
+
+
 
 @section('content')
     <div class="breadcrumbs">
@@ -15,246 +18,133 @@
     </div>
     <!--end-breadcrumbs-->
     <!--typo-starts-->
+
+    <div class="men">
+        <div class="container">
+            <div class="blog-top">
+                <div class="col-md-6 grid_3">
+                    <h3><a href="blog_single.html">Lorem Ipsum is simply</a></h3>
+                    <a href="blog_single.html"><img src="images/slider1.jpg" class="img-responsive" alt=""/></a>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="{{ url('images/b_small.jpg') }}" class="img-responsive" title="admin" alt=""/></a>
+                    </div>
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><i class="admin"> </i><a class="admin" href="#"><span> </span> Admin </a></li>
+                            <li><i class="date"> </i><span> </span>12-04-2015</li>
+                            <li><i class="comment"> </i><a class="p-blog" href="#"><span> </span>No Comments</a></li>
+                        </ul>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="button"><a href="#">Read More</a></div>
+                </div>
+                <div class="col-md-6 grid_3">
+                    <h3><a href="blog_single.html">Lorem Ipsum is simply</a></h3>
+                    <a href="blog_single.html"><img src="images/3.jpg" class="img-responsive" alt=""/></a>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="{{ url('images/b_small.jpg') }}" class="img-responsive" title="admin" alt=""/></a>
+                    </div>
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><i class="admin"> </i><a class="admin" href="#"><span> </span> Admin </a></li>
+                            <li><i class="date"> </i><span> </span>12-04-2015</li>
+                            <li><i class="comment"> </i><a class="p-blog" href="#"><span> </span>No Comments</a></li>
+                        </ul>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="button"><a href="#">Read More</a></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="blog-top">
+                <div class="col-md-6 grid_3">
+                    <h3><a href="blog_single.html">Lorem Ipsum is simply</a></h3>
+                    <a href="blog_single.html"><img src="images/2.jpg" class="img-responsive" alt=""/></a>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="{{ url('images/b_small.jpg') }}" class="img-responsive" title="admin" alt=""/></a>
+                    </div>
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><i class="admin"> </i><a class="admin" href="#"><span> </span> Admin </a></li>
+                            <li><i class="date"> </i><span> </span>12-04-2015</li>
+                            <li><i class="comment"> </i><a class="p-blog" href="#"><span> </span>No Comments</a></li>
+                        </ul>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="button"><a href="#">Read More</a></div>
+                </div>
+                <div class="col-md-6 grid_3">
+                    <h3><a href="blog_single.html">Lorem Ipsum is simply</a></h3>
+                    <a href="blog_single.html"><img src="images/slider2.jpg" class="img-responsive" alt=""/></a>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="{{ url('images/b_small.jpg') }}" class="img-responsive" title="admin" alt=""/></a>
+                    </div>
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><i class="admin"> </i><a class="admin" href="#"><span> </span> Admin </a></li>
+                            <li><i class="date"> </i><span> </span>12-04-2015</li>
+                            <li><i class="comment"> </i><a class="p-blog" href="#"><span> </span>No Comments</a></li>
+                        </ul>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="button"><a href="#">Read More</a></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="blog-bottom">
+                <div class="col-md-6 grid_3">
+                    <h3><a href="blog_single.html">Lorem Ipsum is simply</a></h3>
+                    <a href="blog_single.html"><img src="images/slider3.jpg" class="img-responsive" alt=""/></a>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="{{ url('images/b_small.jpg') }}" class="img-responsive" title="admin" alt=""/></a>
+                    </div>
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><i class="admin"> </i><a class="admin" href="#"><span> </span> Admin </a></li>
+                            <li><i class="date"> </i><span> </span>12-04-2015</li>
+                            <li><i class="comment"> </i><a class="p-blog" href="#"><span> </span>No Comments</a></li>
+                        </ul>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="button"><a href="#">Read More</a></div>
+                </div>
+                <div class="col-md-6 grid_3">
+                    <h3><a href="blog_single.html">Lorem Ipsum is simply</a></h3>
+                    <a href="blog_single.html"><img src="images/slider1.jpg" class="img-responsive" alt=""/></a>
+                    <div class="blog-poast-admin">
+                        <a href="#"><img src="{{ url('images/b_small.jpg') }}" class="img-responsive" title="admin" alt=""/></a>
+                    </div>
+                    <div class="blog-poast-info">
+                        <ul>
+                            <li><i class="admin"> </i><a class="admin" href="#"><span> </span> Admin </a></li>
+                            <li><i class="date"> </i><span> </span>12-04-2015</li>
+                            <li><i class="comment"> </i><a class="p-blog" href="#"><span> </span>No Comments</a></li>
+                        </ul>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="button"><a href="#">Read More</a></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="pages" id="pages">
         <div class="container">
             <div class="typo-top heading">
                 <h2 style="color: #17bf08;">TYPOGRAPHY</h2>
             </div>
-            <div class="typo-bottom">
-                <div class="headdings">
-                    <h3 class="ghj">Headings</h3>
-                    <div class="bs-example">
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <td><h1 class="head" id="h1.-bootstrap-heading">h1. Bootstrap heading<a class="anchorjs-link" href="#h1.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h1></td>
-                                <td class="type-info">Semibold 36px</td>
-                            </tr>
-                            <tr>
-                                <td><h2 class="head" id="h2.-bootstrap-heading">h2. Bootstrap heading<a class="anchorjs-link" href="#h2.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h2></td>
-                                <td class="type-info">Semibold 30px</td>
-                            </tr>
-                            <tr>
-                                <td><h3 class="head" id="h3.-bootstrap-heading">h3. Bootstrap heading<a class="anchorjs-link" href="#h3.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h3></td>
-                                <td class="type-info">Semibold 24px</td>
-                            </tr>
-                            <tr>
-                                <td><h4 class="head" id="h4.-bootstrap-heading">h4. Bootstrap heading<a class="anchorjs-link" href="#h4.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h4></td>
-                                <td class="type-info">Semibold 18px</td>
-                            </tr>
-                            <tr>
-                                <td><h5 class="head" id="h5.-bootstrap-heading">h5. Bootstrap heading<a class="anchorjs-link" href="#h5.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h5></td>
-                                <td class="type-info">Semibold 14px</td>
-                            </tr>
-                            <tr>
-                                <td><h6 class="head">h6. Bootstrap heading</h6></td>
-                                <td class="type-info">Semibold 12px</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="Buttons">
-                    <h3 class="ghj">Buttons</h3>
-                    <h1 class="b1">
-                        <a href="#"><span class="label label-default">Default</span></a>
-                        <a href="#"><span class="label label-primary">Primary</span></a>
-                        <a href="#"><span class="label label-success">Success</span></a>
-                        <a href="#"><span class="label label-info">Info</span></a>
-                        <a href="#"><span class="label label-warning">Warning</span></a>
-                        <a href="#"><span class="label label-danger">Danger</span></a>
-                    </h1>
-                    <h2 class="b2">
-                        <a href="#"><span class="label label-default">Default</span></a>
-                        <a href="#"><span class="label label-primary">Primary</span></a>
-                        <a href="#"><span class="label label-success">Success</span></a>
-                        <a href="#"><span class="label label-info">Info</span></a>
-                        <a href="#"><span class="label label-warning">Warning</span></a>
-                        <a href="#"><span class="label label-danger">Danger</span></a>
-                    </h2>
-                    <h3 class="b3">
-                        <a href="#"><span class="label label-default">Default</span></a>
-                        <a href="#"><span class="label label-primary">Primary</span></a>
-                        <a href="#"><span class="label label-success">Success</span></a>
-                        <a href="#"><span class="label label-info">Info</span></a>
-                        <a href="#"><span class="label label-warning">Warning</span></a>
-                        <a href="#"><span class="label label-danger">Danger</span></a>
-                    </h3>
-                    <h4 class="b4">
-                        <a href="#"><span class="label label-default">Default</span></a>
-                        <a href="#"><span class="label label-primary">Primary</span></a>
-                        <a href="#"><span class="label label-success">Success</span></a>
-                        <a href="#"><span class="label label-info">Info</span></a>
-                        <a href="#"><span class="label label-warning">Warning</span></a>
-                        <a href="#"><span class="label label-danger">Danger</span></a>
-                    </h4>
-                    <h5 class="b5">
-                        <a href="#"><span class="label label-default">Default</span></a>
-                        <a href="#"><span class="label label-primary">Primary</span></a>
-                        <a href="#"><span class="label label-success">Success</span></a>
-                        <a href="#"><span class="label label-info">Info</span></a>
-                        <a href="#"><span class="label label-warning">Warning</span></a>
-                        <a href="#"><span class="label label-danger">Danger</span></a>
-                    </h5>
-                    <h6 class="b6">
-                        <a href="#"><span class="label label-default">Default</span></a>
-                        <a href="#"><span class="label label-primary">Primary</span></a>
-                        <a href="#"><span class="label label-success">Success</span></a>
-                        <a href="#"><span class="label label-info">Info</span></a>
-                        <a href="#"><span class="label label-warning">Warning</span></a>
-                        <a href="#"><span class="label label-danger">Danger</span></a>
-                    </h6>
-                </div>
-                <div class="progress-bars">
-                    <h3 class="ghj">Progress Bars</h3>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="domprogress">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-primary" style="width: 20%"></div>
-                            </div>
-                            <p>Info with <code>progress-bar-info</code> class.</p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-info" style="width: 60%"></div>
-                            </div>
-                            <p>Success with <code>progress-bar-success</code> class.</p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success" style="width: 30%"></div>
-                            </div>
-                            <p>Warning with <code>progress-bar-warning</code> class.</p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-warning" style="width: 70%"></div>
-                            </div>
-                            <p>Danger with <code>progress-bar-danger</code> class.</p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
-                            </div>
-                            <p>Inverse with <code>progress-bar-inverse</code> class.</p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-inverse" style="width: 40%"></div>
-                            </div>
-                            <p>Inverse with <code>progress-bar-inverse</code> class.</p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
-                                <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
-                                <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bread-crumbs">
-                    <h3 class="ghj">Breadcrumbs</h3>
-                    <ol class="breadcrumb">
-                        <li class="active">Home</li>
-                    </ol>
-                    <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li class="active">Library</li>
-                    </ol>
-                    <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Library</a></li>
-                        <li class="active">Data</li>
-                    </ol>
-                </div>
-                <div class="pagenatin">
-                    <h3 class="ghj">Pagination</h3>
-                    <div class="col-md-6">
-                        <nav>
-                            <ul class="pagination pagination-lg">
-                                <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                            </ul>
-                        </nav>
-                        <nav>
-                            <ul class="pagination">
-                                <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                            </ul>
-                        </nav>
-                        <nav>
-                            <ul class="pagination pagination-sm">
-                                <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="col-md-6">
-                        <nav>
-                            <ul class="pagination pagination-lg">
-                                <li class="disabled"><a href="#"><i class="fa fa-angle-left">«</i></a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right">»</i></a></li>
-                            </ul>
-                        </nav>
-                        <nav>
-                            <ul class="pagination">
-                                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                            </ul>
-                        </nav>
-                        <nav>
-                            <ul class="pagination pagination-sm">
-                                <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i>«</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>»</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="alerts">
-                    <h3 class="ghj">Alerts</h3>
-                    <div class="alert alert-success" role="alert">
-                        <strong>Well done!</strong> You successfully read this important alert message.
-                    </div>
-                    <div class="alert alert-info" role="alert">
-                        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-                    </div>
-                    <div class="alert alert-warning" role="alert">
-                        <strong>Warning!</strong> Best check yo self, you're not looking too good.
-                    </div>
-                    <div class="alert alert-danger" role="alert">
-                        <strong>Oh snap!</strong> Change a few things up and try submitting again.
-                    </div>
-                </div>
+
                 <div class="distracted">
                     <h3 class="ghj">Wells</h3>
                     <div class="well">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                        CUD SHOP - Chuyên sỉ và lẻ giày dép Nam/Nữ trên toàn quốc
                     </div>
                     <div class="well">
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here
+                        CUD SHOP luôn bán hàng theo tiêu chí “RẺ - ĐẸP – BỀN”, mong muốn đem đến chất lượng cũng như giá cả tốt nhất và phù hợp cho mọi người.
                     </div>
                     <div class="well">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                        Sự hài lòng của các bạn chính là mục tiêu phấn đấu của chúng tôi !
                     </div>
                 </div>
                 <div class="appearance">

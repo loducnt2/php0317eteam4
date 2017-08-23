@@ -7,7 +7,7 @@
                 <!-- user image section-->
                 <div class="user-section">
                     <div class="user-section-inner">
-                        <img src="assets/img/user.jpg" alt="">
+                        <img src="{{ url('assets/img/user.jpg') }}" alt="">
                     </div>
                     <div class="user-info">
                         <div>Jonny <strong>Deen</strong></div>
