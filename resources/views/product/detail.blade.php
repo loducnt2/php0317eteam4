@@ -172,14 +172,14 @@
                                     <td >Phản hồi</td>
                                 </tr>
 
-                                {{--@if(isset($comment))
+                                @if(isset($comment))
                                     @foreach($comment as $ite)
                                         <tr>
                                             <td>{{ $ite->content }}</td>
                                             <td>{{ $ite->content }}</td>
                                         </tr>
                                     @endforeach
-                                @endif--}}
+                                @endif
 
                             </table>
 

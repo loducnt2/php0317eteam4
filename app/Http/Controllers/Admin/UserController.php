@@ -19,9 +19,9 @@ class UserController extends Controller
     {
         if ($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $user = User::where('name', 'like', '%' . $keyword . '%')->get();
+            $user = User::where('name', 'like', '%' . $keyword . '%')->paginate(5);
         }else{
-            $user = User::all();
+            $user = User::paginate(5);
         }
 
 

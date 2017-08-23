@@ -28,7 +28,7 @@
             <!--quick info section -->
             <div class="col-lg-3">
                 <div class="alert alert-danger text-center">
-                    <i class="fa fa-calendar fa-3x"></i>&nbsp;<b>20 </b>Meetings Sheduled This Month
+                    <i class="fa fa-calendar fa-3x"></i>&nbsp;<b>{{ number_format($dem) }}</b>People đăng ký hệ thống
 
                 </div>
             </div>

@@ -15,7 +15,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $cmt = Comment::all();
+        $cmt = Comment::paginate(5);
 
         return view('admin.comment.show', ['cmt' => $cmt]);
     }

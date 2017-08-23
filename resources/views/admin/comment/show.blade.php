@@ -113,7 +113,7 @@
                                     <div class="col-sm-6">
                                         <div class="dataTables_paginate paging_simple_numbers"
                                              id="dataTables-example_paginate">
-                                            
+                                            {{ $cmt->links() }}
                                         </div>
                                     </div>
                                 </div>

@@ -18,13 +18,13 @@ class OrderController extends Controller
     {
         if ($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $ord = Order::where('id' , 'like' , '%' . $keyword . '%')->get();
+            $ord = Order::where('id' , 'like' , '%' . $keyword . '%')->paginate(5);
         }else{
-            $ord = Order::all();
+            $ord = Order::paginate(5);
         }
 
 
-        return view('admin.order.show', ['order'=> $ord]);
+        return view('admin.order.show', [ 'order'=> $ord ]);
     }
 
     /**

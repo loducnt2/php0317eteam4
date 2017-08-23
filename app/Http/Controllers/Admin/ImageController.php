@@ -19,9 +19,9 @@ class ImageController extends Controller
     {
         if ($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $image = Image::where('name', 'like', '%' . $keyword . '%')->get();
+            $image = Image::where('name', 'like', '%' . $keyword . '%')->paginate(5);
         }else{
-            $image = Image::all();
+            $image = Image::paginate(5);
         }
 
 

@@ -16,7 +16,7 @@ class WarrantydetailController extends Controller
      */
     public function index()
     {
-        $warr = Warrantydetail::all();
+        $warr = Warrantydetail::paginate(5);
 
         return view('admin.warrantydetail.show', ['warr' => $warr]);
     }

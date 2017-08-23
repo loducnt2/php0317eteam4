@@ -17,9 +17,9 @@ class CategoryController extends Controller
     {
         if($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $categories = Category::where('title', 'like', '%' .$keyword . '%')->get();
+            $categories = Category::where('title', 'like', '%' .$keyword . '%')->paginate(5);
         }else{
-            $categories = Category::all();
+            $categories = Category::paginate(5);
         }
 
 

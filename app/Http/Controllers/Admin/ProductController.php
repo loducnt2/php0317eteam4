@@ -29,9 +29,9 @@ class ProductController extends Controller
     {
         if($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $product = Product::where('name','like', '%' . $keyword . '%')->get();
+            $product = Product::where('name','like', '%' . $keyword . '%')->paginate(5);
         }else{
-            $product = Product::all();
+            $product = Product::paginate(5);
         }
 
         /*echo "<pre>";

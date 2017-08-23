@@ -26,6 +26,9 @@ class ProductController extends Controller
 
         if ($request->has('keyword')){
             $keyword = $request->keyword;
+            if ($keyword == 'Search'){
+                $keyword = '';
+            }
             $products = $products->where('products.name', 'like' , '%' . $keyword . '%');
         }
         $products = $products->paginate(12);

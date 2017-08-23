@@ -62,7 +62,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <strong><span class=" label label-info">Jonney Depp</span></strong>
+                                <strong><span class=" label label-info">{{ Auth::User()->name }}</span></strong>
                                 <span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>

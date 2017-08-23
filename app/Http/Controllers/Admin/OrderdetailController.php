@@ -17,7 +17,7 @@ class OrderdetailController extends Controller
      */
     public function index()
     {
-        $orderdetail = Orderdetail::all();
+        $orderdetail = Orderdetail::paginate(5);
 
         return view('admin.orderdetail.show', ['orderdetail' => $orderdetail]);
     }
