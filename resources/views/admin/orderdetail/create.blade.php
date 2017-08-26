@@ -38,7 +38,7 @@
 
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" >
+                                    {!! Form::text('quantity', null, ['class' => 'form-control']) !!}
                                 </div>
                                 {!!  $errors->first('quantity', '<span id="quantity-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 

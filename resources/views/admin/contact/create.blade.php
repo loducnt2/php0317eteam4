@@ -25,25 +25,25 @@
 
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" name="name" >
+                                    {!! Form::text('name', null, ['class' => 'form-control', 'name' => 'name']) !!}
                                 </div>
                                 {!!  $errors->first('name', '<span id="name-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
                                 <div class="form-group">
                                     <label>Phone</label>
-                                    <input type="text" class="form-control" name="phone" >
+                                    {!! Form::text('phone', null, ['class' => 'form-control', 'name' => 'phone']) !!}
                                 </div>
                                 {!!  $errors->first('phone', '<span id="phone-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" name="email" >
+                                    {!! Form::text('email', null, ['class' => 'form-control', 'name' => 'email']) !!}
                                 </div>
                                 {!!  $errors->first('email', '<span id="eamil-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
                                 <div class="form-group">
                                     <label>Message</label>
-                                    <input type="text" class="form-control" name="message" >
+                                    {!! Form::text('message', null, ['class' => 'form-control', 'name' => 'message']) !!}
                                 </div>
                                 {!!  $errors->first('message', '<span id="message-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 

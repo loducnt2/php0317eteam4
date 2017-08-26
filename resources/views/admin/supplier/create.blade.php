@@ -26,35 +26,35 @@
 
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" name="name" >
+                                    {!! Form::text('name', null, ['class' => 'form-control', 'name' => 'name']) !!}
                                 </div>
                                 {!!  $errors->first('name', '<span id="name-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
 
                                 <div class="form-group">
                                     <label>Address</label>
-                                    <input type="text" class="form-control" name="address" >
+                                    {!! Form::text('address', null, ['class' => 'form-control', 'name' => 'address']) !!}
                                 </div>
                                 {!!  $errors->first('address', '<span id="address-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
 
                                 <div class="form-group">
                                     <label>Website</label>
-                                    <input type="text" class="form-control" name="website" >
+                                    {!! Form::text('website', null, ['class' => 'form-control', 'name' => 'website']) !!}
                                 </div>
                                 {!!  $errors->first('website', '<span id="website-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
 
                                 <div class="form-group">
                                     <label>Phone</label>
-                                    <input type="text" class="form-control" name="phone" >
+                                    {!! Form::text('phone', null, ['class' => 'form-control', 'name' => 'phone']) !!}
                                 </div>
                                 {!!  $errors->first('phone', '<span id="phone-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
 
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" name="email" >
+                                    {!! Form::text('email', null, ['class' => 'form-control', 'name' => 'email']) !!}
                                 </div>
                                 {!!  $errors->first('email', '<span id="eamil-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 

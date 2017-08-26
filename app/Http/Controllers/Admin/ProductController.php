@@ -69,7 +69,7 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'price' => 'required|regex:/[0-9]{1,20}/',
             'discount' => 'required|regex:/[0-9]{1,100}/',
-            'description' => 'required|max:800',
+            'description' => 'required',
             'thumbnail' => 'image|mimes:jpg,png,gif',
         ]);
 

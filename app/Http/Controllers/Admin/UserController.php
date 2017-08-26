@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash; /*thêm câu này để thêm được cái password nó có dạng md5 trong database*/
 
 class UserController extends Controller
 {
@@ -35,8 +36,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $group = Group::all();
+
+        return view('admin.user.create', ['group' => $group]);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -44,9 +48,33 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required',
+            'last_name' => 'required|max:255',
+            'first_name' => 'required|max:255',
+            'phone' => 'required|regex:/(0)[0-9]{9,10}/',
+            'address' => 'required',
+            'gender' => 'required'
+        ]);
+
+        $p = new User();
+        $p->name = $request->name;
+        $p->email = $request->email;
+        $p->password = Hash::make($request->password); /*Được định dạng md5 trng database*/
+        $p->last_name = $request->last_name;
+        $p->first_name = $request->first_name;
+        $p->phone = $request->phone;
+        $p->address = $request->address;
+        $p->gender = $request->gender;
+        $p->save();
+
+        Session::flash('success', 'Thêm mới ảnh thành công');
+        return redirect('admin/user');
     }
 
     /**
@@ -57,7 +85,15 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::findOrFail($id);
+
+        /*echo "<pre>";
+        print_r($users->toArray());
+        die();*/
+
+        return view('admin.user.detail', [
+            'users' => $users
+        ]);
     }
 
     /**

@@ -39,11 +39,20 @@
                 </div>
                 <div class="col-md-9 contact-right">
                     {!! Form::open(['type' => 'POST', 'url' => 'contact', 'role' => 'form']) !!}
-                            <input type="text" placeholder="Name" name="name">
-                            <input type="text" placeholder="Phone" name="phone">
-                            <input type="text"  placeholder="Email" name="email">
-                            <textarea placeholder="Message" required="" name="message"></textarea>
-                            <div class="submit-btn">
+
+                        {!! Form::text('name', null, ['placeholder' => 'Name', 'name' => 'name']) !!}
+                        {!!  $errors->first('name', '<span id="name-error" style="color: red;" >:message</span>') !!}
+
+                        {!! Form::text('phone', null,  ['placeholder' => 'Phone', 'name' => 'phone']) !!}
+                        {!!  $errors->first('phone', '<span id="phone-error" style="color: red;" >:message</span>') !!}
+
+                    {!! Form::text('email', null, ['placeholder' => 'Email', 'name' => 'email']) !!}
+                        {!!  $errors->first('email', '<span id="email-error" style="color: red;" >:message</span>') !!}
+
+                    {!! Form::textarea('message', null, ['placeholder' => 'Message', 'name' => 'message']) !!}
+                        {!!  $errors->first('message', '<span id="message-error" style="color: red;" >:message</span>') !!}
+
+                    <div class="submit-btn">
                                 <input type="submit" value="GỬI" name="btnSubmit">
                             </div>
                     {!! Form::close() !!}

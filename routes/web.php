@@ -52,14 +52,21 @@ Route::group(['middleware'  => ['auth']], function (){
     Route::group(['middleware'  => ['ckAdmin']], function (){
 
         Route::get('admin', 'Admin\DashboardController@index');
+
         Route::resource('admin/category', 'Admin\CategoryController');
+
         Route::resource('admin/product', 'Admin\ProductController');
+
         Route::resource('admin/user', 'Admin\UserController');
+        Route::get('admin/account/detail/{id}', 'Admin\UserController@show');
 
         Route::resource('admin/orderdetail', 'Admin\OrderdetailController');
         Route::resource('admin/order', 'Admin\OrderController');
+
         Route::resource('admin/supplier', 'Admin\SupplierController');
+
         Route::resource('admin/image', 'Admin\ImageController');
+
         Route::resource('admin/warrantydetail', 'Admin\WarrantydetailController');
         Route::resource('admin/warranty', 'Admin\WarrantyController');
 
@@ -68,6 +75,7 @@ Route::group(['middleware'  => ['auth']], function (){
         Route::resource('admin/contact', 'Admin\ContactController');
 
         Route::resource('admin/group', 'Admin\GroupController');
+
 
     });
 });

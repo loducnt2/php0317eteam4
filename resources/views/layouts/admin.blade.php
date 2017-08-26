@@ -225,7 +225,7 @@
 
                         <ul class="dropdown-menu dropdown-user">
 
-                            <li><a href="{{ url('account/detail/' . Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                            <li><a href="{{ url('admin/account/detail/' . Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i>User Profile</a>
                             </li>
 
                             <li><a href="{{ url('admin/user/' . Auth::user()->id . '/edit') }}"><i class="fa fa-gear fa-fw"></i>Settings</a>

@@ -28,38 +28,38 @@
                                     <label>Name</label>
                                     {!! Form::text('name', null, ['class' => 'form-control']) !!}
                                     {!!  $errors->first('name', '<span id="name-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
                                 </div>
+
                                 <div class="form-group">
                                     <label>Email</label>
                                     {!! Form::text('email', null, ['class' => 'form-control']) !!}
                                     {!!  $errors->first('email', '<span id="email-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
                                 </div>
+
                                 <div class="form-group">
                                     <label>Note</label>
                                     {!! Form::text('note', null, ['class' => 'form-control']) !!}
                                     {!!  $errors->first('note', '<span id="note-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
                                 </div>
+
                                 <div class="form-group">
                                     <label>Phone</label>
                                     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
                                     {!!  $errors->first('phone', '<span id="phone-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
                                 </div>
+
                                 <div class="form-group">
                                     <label>Address</label>
                                     {!! Form::text('address', null, ['class' => 'form-control']) !!}
                                     {!!  $errors->first('address', '<span id="address-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
                                 </div>
+
                                 <div class="form-group">
                                     <label>Amount</label>
                                     {!! Form::text('amount', null, ['class' => 'form-control']) !!}
                                     {!!  $errors->first('amount', '<span id="amount-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
                                 </div>
+
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control">

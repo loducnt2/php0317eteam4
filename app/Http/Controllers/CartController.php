@@ -38,11 +38,12 @@ class CartController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required|regex:/(0)[0-9]{9,10}/',
             'address' => 'required',
             'note' => 'required'
         ]);
+
         // lat lam theo cho cac truong khac vao no se tu bat loi em nhe
 
         //luu thong thong tin nguoi nhan vao bang order

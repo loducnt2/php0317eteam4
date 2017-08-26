@@ -25,7 +25,7 @@
 
                                     <div class="form-group">
                                         <label>Title</label>
-                                        <input type="text" class="form-control" name="title" >
+                                        {!! Form::text('title', null, ['class' => 'form-control', 'name' => 'name']) !!}
                                         <p class="help-block">Loại mặt hàng</p>
                                     </div>
 

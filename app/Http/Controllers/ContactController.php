@@ -46,6 +46,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'phone' => 'required|regex:/(0)[0-9]{9,10}/',
+            'email' => 'required|email|unique:users,email',
+            'message' => 'required'
+        ]);
+
         $c = new Contact();
         $c->name = $request->name;
         $c->phone = $request->phone;

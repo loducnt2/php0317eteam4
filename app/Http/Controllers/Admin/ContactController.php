@@ -49,7 +49,7 @@ class ContactController extends Controller
             'name' => 'required|max:255',
             'phone' => 'required|regex:/(0)[0-9]{9,10}/',
             'email' => 'required|email|unique:users,email',
-            'message' => 'required|max:500'
+            'message' => 'required'
         ]);
 
         $c = new Contact();

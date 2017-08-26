@@ -37,7 +37,7 @@
 
                                 <div class="form-group">
                                     <label>Image</label>
-                                    <input type="file" class="form-control" name="name" >
+                                    {!! Form::file('name', null, ['class' => 'form-control', 'name' => 'phone']) !!}
                                 </div>
                                 {!!  $errors->first('name', '<span id="name-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 

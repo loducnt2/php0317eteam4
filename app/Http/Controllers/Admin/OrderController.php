@@ -48,11 +48,11 @@ class OrderController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users,email',
-            'note' => 'required|max:800',
+            'note' => 'required',
             'phone' => 'required|regex:/(0)[0-9]{9,10}/',
-            'address' => 'required|max:500',
+            'address' => 'required',
             'amount' => 'required|regex:/[0-9]{2,20}/',
-            'status' => 'required|max:50'
+            'status' => 'required'
         ]);
 
         $c = new Order();
