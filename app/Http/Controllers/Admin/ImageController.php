@@ -49,6 +49,10 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'image|mimes:jpg,png,gif',
+        ]);
+
         $image = 'no-image.jpg';
         if ($request->hasFile('name')){
             $file = $request->file('name');

@@ -22,12 +22,11 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 {{--{!! Form::open(['method' => 'PATCH', 'url' => 'admin/category/' . $cate->id, 'role' => 'form']) !!}--}}
-                                {!! Form::open(['method' => 'PATCH', 'url' => 'admin/category/' . $cate->id, 'role' => 'form']) !!}
+                                {!! Form::model($cate ,['method' => 'PATCH', 'url' => 'admin/category/' . $cate->id, 'role' => 'form']) !!}
 
                                 <div class="form-group">
-                                    <label>Title</label>
-                                    <input type="text" class="form-control" name="title" value="{{ $cate->title }}" >
-                                    <p class="help-block">Loại mặt hàng</p>
+                                    <label>Name</label>
+                                    {!! Form::text('title', null,  ['class' => 'form-control']) !!}
                                 </div>
 
                                 <div class="form-group">

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Group;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Category;
 use Session;
-class CategoryController extends Controller
+class GroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +17,13 @@ class CategoryController extends Controller
     {
         if($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $categories = Category::where('title', 'like', '%' .$keyword . '%')->paginate(5);
+            $group = Group::where('name', 'like', '%' .$keyword . '%')->paginate(5);
         }else{
-            $categories = Category::paginate(5);
+            $group = Group::paginate(5);
         }
 
 
-        return view('admin.category.list', ['categories' => $categories]);
+        return view('admin.group.show', ['group' => $group]);
     }
 
     /**
@@ -33,8 +33,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
-
+        return view('admin.group.create');
     }
 
     /**
@@ -46,18 +45,15 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|max:255',
-            'status' => 'required|max:255'
-
+            'name' => 'required|max:255'
         ]);
 
-        $c = new Category();
-        $c->title = $request->title;
-        $c->status = $request->status;
+        $c = new Group();
+        $c->name = $request->name;
         $c->save();
         Session::flash('success', "Thêm mới thành công!!!");
 
-        return redirect('admin/category');
+        return redirect('admin/group');
     }
 
     /**
@@ -79,9 +75,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $cate = Category::findOrFail($id);
+        $group = Group::findOrFail($id);
 
-        return view('admin.category.edit', ['cate' => $cate]);
+        return view('admin.group.edit', ['group' => $group]);
     }
 
     /**
@@ -93,14 +89,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cate = Category::findOrFail($id);
-        $cate->title = $request->title;
-        $cate->status = $request->status;
+        $this->validate($request, [
+            'name' => 'required|max:255'
+        ]);
+
+        $cate = Group::findOrFail($id);
+        $cate->name = $request->name;
         $cate->save();
 
         Session::flash('success', "Cập nhật thành công!!!");
 
-        return redirect('admin/category');
+        return redirect('admin/group');
     }
 
     /**
@@ -111,12 +110,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $cate = Category::findOrFail($id);
-        $cate->delete();
-
-        Session::flash('success', "Bạn đã xóa thành công");
-        return redirect('admin/category');
-
-
+        //
     }
 }

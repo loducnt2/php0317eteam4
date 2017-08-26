@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Contact;
-use App\Order;
-use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +15,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $dem = User::count();
-
-        $order = Order::count();
-
         $contact = Contact::count();
 
-        return view('admin.dashboard', [
-            'dem' => $dem,
-            'order' => $order,
-            'contact' => $contact
+        $cmt = Contact::all();
+
+        return view('layouts.admin' , [
+            'contact' => $contact,
+            'cmt' => $cmt
         ]);
     }
 

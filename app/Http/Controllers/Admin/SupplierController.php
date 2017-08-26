@@ -14,9 +14,15 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $sup = Supplier::paginate(4);
+        if($request->has('keyword')){
+            $keyword = $request->get('keyword');
+            $sup = Supplier::where('name', 'like', '%' . $keyword . '%')->paginate(4);
+        }else{
+            $sup = Supplier::paginate(4);
+        }
+
 
         return view('admin.supplier.show', ['supplier' => $sup]);
     }
@@ -39,6 +45,14 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'address' => 'required|max:500',
+            'website' => 'required|max:255',
+            'phone' => 'required|regex:/(0)[0-9]{9,10}/',
+            'email' => 'required|email|unique:users,email'
+        ]);
+
         $c = new Supplier();
         $c->name = $request->name;
         $c->address = $request->address;

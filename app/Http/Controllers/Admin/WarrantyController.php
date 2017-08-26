@@ -14,9 +14,15 @@ class WarrantyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $warranty = Warranty::paginate(5);
+        if($request->has('keyword')){
+            $keyword = $request->get('keyword');
+            $warranty = Warranty::where('first_name', 'like', '%' . $keyword . '%')->paginate(5);
+        }else{
+            $warranty = Warranty::paginate(5);
+        }
+
 
         return view('admin.warranty.show', ['warranty' => $warranty]);
     }

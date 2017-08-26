@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title') SHOP ĐHQ @endsection
+@section('title') Cud Shop @endsection
 @section('content')
     <div id="page-wrapper">
 
@@ -16,8 +16,8 @@
             <!-- Welcome -->
             <div class="col-lg-12">
                 <div class="alert alert-info">
-                    <i class="fa fa-folder-open"></i><b>&nbsp;Hello ! </b>Welcome Back <b>Jonny Deen </b>
-                    <i class="fa  fa-pencil"></i><b>&nbsp;2,000 </b>Support Tickets Pending to Answere. nbsp;
+                    <i class="fa fa-folder-open"></i><b>&nbsp;Hello ! </b>Welcome Back <b> Cud Shop </b>
+                    <i class="fa  fa-pencil"></i><b>&nbsp;2,000 </b>Support Tickets Pending to Answere. ;
                 </div>
             </div>
             <!--end  Welcome -->
@@ -28,19 +28,20 @@
             <!--quick info section -->
             <div class="col-lg-3">
                 <div class="alert alert-danger text-center">
-                    <i class="fa fa-calendar fa-3x"></i>&nbsp;<b>{{ number_format($dem) }}</b>People đăng ký hệ thống
-
+                    <i class="fa fa-calendar fa-3x"></i>&nbsp;<b>{{ number_format($dem) }}</b> <br/>
+                        Người đăng ký hệ thống
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="alert alert-success text-center">
-                    <i class="fa  fa-beer fa-3x"></i>&nbsp;<b>27 % </b>Profit Recorded in This Month
+                    <i class="fa  fa-beer fa-3x"></i>&nbsp;<b>{{ number_format($order) }} </b><br/>
+                        Hóa đơn đã được đặt
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="alert alert-info text-center">
-                    <i class="fa fa-rss fa-3x"></i>&nbsp;<b>1,900</b> New Subscribers This Year
-
+                    <i class="fa fa-rss fa-3x"></i>&nbsp;<b>{{ number_format($contact) }}</b> <br/>
+                        Phản hồi từ khác hàng
                 </div>
             </div>
             <div class="col-lg-3">
@@ -57,7 +58,7 @@
 
 
                 <!--Area chart example -->
-                <div class="panel panel-primary">
+                {{--<div class="panel panel-primary">
                     <div class="panel-heading">
                         <i class="fa fa-bar-chart-o fa-fw"></i>Area Chart Example
                         <div class="pull-right">
@@ -86,6 +87,7 @@
                     </div>
 
                 </div>
+
                 <!--End area chart example -->
                 <!--Simple table example -->
                 <div class="panel panel-primary">
@@ -214,11 +216,6 @@
                             </span>
                     </div>
                 </div>
-
-
-
-
-
 
 
             </div>
@@ -420,7 +417,7 @@
                 <!--End Chat Panel Example-->
             </div>
         </div>
-
+--}}
 
 
 

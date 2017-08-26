@@ -35,21 +35,12 @@
                                     <p class="help-block">Loại mặt hàng</p>
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Price</label>
-                                    <input type="text" class="form-control" name="price" >
-                                </div>
 
                                 <div class="form-group">
                                     <label>Quantity</label>
                                     <input type="text" class="form-control" name="quantity" >
                                 </div>
-
-                                <div class="form-group">
-                                    <label>Order</label>
-                                    <input type="text" class="form-control" name="order_id" >
-                                </div>
-
+                                {!!  $errors->first('quantity', '<span id="quantity-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
 
                                 <button type="submit" class="btn btn-primary">Submit</button>

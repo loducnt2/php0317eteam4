@@ -1,6 +1,8 @@
     <div class="form-group">
         <label>Name</label>
         {!! Form::text('name', null, ['class' => 'form-control']) !!}
+        {!!  $errors->first('name', '<span id="name-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
+
     </div>
 
     <div class="form-group">
@@ -12,16 +14,22 @@
     <div class="form-group">
         <label>Price</label>
         {!! Form::text('price', null, ['class' => 'form-control']) !!}
+        {!!  $errors->first('price', '<span id="price-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
+
     </div>
 
     <div class="form-group">
         <label>Discount</label>
         {!! Form::text('discount', null, ['class' => 'form-control']) !!}
+        {!!  $errors->first('discount', '<span id="discount-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
+
     </div>
 
     <div class="form-group">
         <label>Description</label>
         {!! Form::text('description', null, ['class' => 'form-control']) !!}
+        {!!  $errors->first('description', '<span id="description-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
+
     </div>
 
     <div class="form-group">

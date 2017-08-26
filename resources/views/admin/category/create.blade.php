@@ -29,6 +29,8 @@
                                         <p class="help-block">Loại mặt hàng</p>
                                     </div>
 
+                                {!!  $errors->first('title', '<span id="title-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
+
                                     <div class="form-group">
                                         <label>Status</label>
                                         <select name="status" class="form-control">
@@ -36,6 +38,8 @@
                                             <option value="disable">Disable</option>
                                         </select>
                                     </div>
+
+                                {!!  $errors->first('status', '<span id="status-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-success">Reset</button>

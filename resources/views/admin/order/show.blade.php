@@ -35,15 +35,8 @@
 
                                         <a href="{{ url('admin/order/create') }}">Create New</a>
 
-                                        {{--{{ Form::open(['method' => 'GET', 'url' => 'admin/order']) }}
-                                            <input type="text" name="keyword"
-                                                   @if(Request::has('keyword'))
-                                                        value="{{ Request::get('keyword') }}"
-                                                   @endif
-                                                   placeholder="Tìm kiếm..." />
-                                            <input type="submit" value="Search" />
-                                        {{ Form::close() }}--}}
                                     </div>
+
                                     <div class="col-sm-6">
                                         <div id="dataTables-example_filter" class="dataTables_filter">
                                             {{ Form::open(['method' => 'GET', 'url' => 'admin/order']) }}
@@ -58,6 +51,7 @@
                                             {{ Form::close() }}
                                         </div>
                                     </div>
+
                                 </div>
                                 <table class="table table-striped table-bordered table-hover dataTable no-footer"
                                        id="dataTables-example" aria-describedby="dataTables-example_info">
@@ -88,6 +82,10 @@
                                             colspan="1" aria-label="Engine version: activate to sort column ascending"
                                             style="width: 153px;">Status
                                         </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="Engine version: activate to sort column ascending"
+                                            style="width: 153px;">Action
+                                        </th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -95,9 +93,15 @@
                                         @foreach($order as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
-                                                <td>{{ $item->user->name }}</td>
+
+                                                {{--<td>{{ $item->user->name }}</td>
                                                 <td>{{ $item->user->phone }}</td>
-                                                <td>{{ $item->user->address }}</td>
+                                                <td>{{ $item->user->address }}</td>--}}
+
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->phone }}</td>
+                                                <td>{{ $item->address }}</td>
+
                                                 <td>
                                                     <?php $totalAmount = 0; ?>
                                                         @foreach($item->orderdetail as $dItem)
@@ -109,8 +113,8 @@
                                                 <td>
                                                     {{ Form::open(['method' => 'DELETE', 'url' => 'admin/order/' . $item->id]) }}
 
-                                                    <a href=" # {{--{{ url('admin/order/' . $item->id . '/edit') }}--}}" class="btn">Edit</a> |
-                                                    {{--<a href="{{ url('admin/order/' . $item->id ) }}" class="btn">Delete</a>--}}
+                                                    {{--<a href="{{ url('admin/order/' . $item->id . '/edit') }}" class="btn">Edit</a> |--}}
+
                                                     <button type="submit" class="btn" onclick="return confirm('Bạn có chắc muốn xóa không');">Delete</button>
 
                                                     {{ Form::close() }}

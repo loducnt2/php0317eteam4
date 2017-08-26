@@ -33,7 +33,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
 
-                                        <a href="{{ url('admin/warrantydetail/create') }}">Create New</a>
+                                        {{--<a href="{{ url('admin/warrantydetail/create') }}">Create New</a>--}}
 
                                     </div>
                                     <div class="col-sm-6">
@@ -66,7 +66,7 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Browser: activate to sort column ascending"
-                                            style="width: 245px;">Warranty
+                                            style="width: 245px;">Warranty*
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Browser: activate to sort column ascending"
@@ -99,7 +99,7 @@
                                                 <td>
                                                     {{ Form::open(['method' => 'DELETE', 'url' => 'admin/warrantydetail/' . $item->id]) }}
 
-                                                    <a href="# {{--{{ url('admin/warrantydetail/' . $item->id . '/edit') }}--}}" {{--class="btn"--}}>Edit</a>|
+                                                    {{--<a href="{{ url('admin/warrantydetail/' . $item->id . '/edit') }}" --}}{{--class="btn"--}}{{-->Edit</a> --}}|
                                                     <button type="submit" {{--class="btn"--}} onclick="return confirm('Bạn có chắc muốn xóa không');">Delete</button>
 
                                                     {{ Form::close() }}

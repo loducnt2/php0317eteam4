@@ -18,13 +18,13 @@ class OrderController extends Controller
     {
         if ($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $ord = Order::where('id' , 'like' , '%' . $keyword . '%')->paginate(5);
+            $order = Order::where('id' , 'like' , '%' . $keyword . '%')->paginate(5);
         }else{
-            $ord = Order::paginate(5);
+            $order = Order::paginate(5);
         }
 
 
-        return view('admin.order.show', [ 'order'=> $ord ]);
+        return view('admin.order.show', [ 'order'=> $order ]);
     }
 
     /**
@@ -34,7 +34,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.order.create');
     }
 
     /**
@@ -45,7 +45,28 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:users,email',
+            'note' => 'required|max:800',
+            'phone' => 'required|regex:/(0)[0-9]{9,10}/',
+            'address' => 'required|max:500',
+            'amount' => 'required|regex:/[0-9]{2,20}/',
+            'status' => 'required|max:50'
+        ]);
+
+        $c = new Order();
+        $c->name = $request->name;
+        $c->email = $request->email;
+        $c->note = $request->note;
+        $c->phone = $request->phone;
+        $c->address = $request->address;
+        $c->amount = $request->amount;
+        $c->status = $request->status;
+        $c->save();
+        Session::flash('success', "Thêm mới thành công!!!");
+
+        return redirect('admin/order');
     }
 
     /**

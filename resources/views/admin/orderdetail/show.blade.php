@@ -35,14 +35,6 @@
 
                                         <a href="{{ url('admin/orderdetail/create') }}">Create New</a>
 
-                                        {{--{{ Form::open(['method' => 'GET', 'url' => 'admin/orderdetail']) }}
-                                            <input type="text" name="keyword"
-                                                   @if(Request::has('keyword'))
-                                                        value="{{ Request::get('keyword') }}"
-                                                   @endif
-                                                   placeholder="Tìm kiếm..." />
-                                            <input type="submit" value="Search" />
-                                        {{ Form::close() }}--}}
                                     </div>
                                     <div class="col-sm-6">
                                         <div id="dataTables-example_filter" class="dataTables_filter">
@@ -82,7 +74,7 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Engine version: activate to sort column ascending"
-                                            style="width: 153px;">Order
+                                            style="width: 153px;">Order*
                                         </th>
                                     </tr>
                                     </thead>
@@ -92,14 +84,14 @@
                                             <tr>
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->product->name }}</td>
-                                                <td>{{ $item->product->price }}</td>
+                                                <td>{{ number_format($item->product->price * $item->quantity) }}</td>
                                                 <td>{{ $item->quantity }}</td>
                                                 <td>{{ $item->order_id }}</td>
                                                 <td>
                                                     {{ Form::open(['method' => 'DELETE', 'url' => 'admin/orderdetail/' . $item->id]) }}
 
-                                                    <a href="#{{--{{ url('admin/orderdetail/' . $item->id . '/edit') }}--}}" class="btn">Edit</a> |
-                                                    {{--<a href="{{ url('admin/orderdetail/' . $item->id ) }}" class="btn">Delete</a>--}}
+                                                    {{--<a href="{{ url('admin/orderdetail/' . $item->id . '/edit') }}" class="btn">Edit</a> |--}}
+
                                                     <button type="submit" class="btn" onclick="return confirm('Bạn có chắc muốn xóa không');">Delete</button>
 
                                                     {{ Form::close() }}

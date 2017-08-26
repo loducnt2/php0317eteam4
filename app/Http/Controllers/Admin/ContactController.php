@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Category;
 use Session;
-class CategoryController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +17,14 @@ class CategoryController extends Controller
     {
         if($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $categories = Category::where('title', 'like', '%' .$keyword . '%')->paginate(5);
+            $contact = Contact::where('name', 'like', '%' .$keyword . '%')->paginate(5);
         }else{
-            $categories = Category::paginate(5);
+            $contact = Contact::paginate(5);
         }
 
 
-        return view('admin.category.list', ['categories' => $categories]);
+
+        return view('admin.contact.show', ['contact' => $contact]);
     }
 
     /**
@@ -33,8 +34,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
-
+        return view('admin.contact.create');
     }
 
     /**
@@ -46,18 +46,21 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|max:255',
-            'status' => 'required|max:255'
-
+            'name' => 'required|max:255',
+            'phone' => 'required|regex:/(0)[0-9]{9,10}/',
+            'email' => 'required|email|unique:users,email',
+            'message' => 'required|max:500'
         ]);
 
-        $c = new Category();
-        $c->title = $request->title;
-        $c->status = $request->status;
+        $c = new Contact();
+        $c->name = $request->name;
+        $c->phone = $request->phone;
+        $c->email = $request->email;
+        $c->message = $request->message;
         $c->save();
         Session::flash('success', "Thêm mới thành công!!!");
 
-        return redirect('admin/category');
+        return redirect('admin/contact');
     }
 
     /**
@@ -79,9 +82,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $cate = Category::findOrFail($id);
+        $contact = Contact::findOrFail($id);
 
-        return view('admin.category.edit', ['cate' => $cate]);
+        return view('admin.contact.edit', ['contact' => $contact]);
     }
 
     /**
@@ -93,14 +96,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cate = Category::findOrFail($id);
-        $cate->title = $request->title;
-        $cate->status = $request->status;
+        $cate = Contact::findOrFail($id);
+        $cate->name = $request->name;
+        $cate->phone = $request->phone;
+        $cate->email = $request->email;
+        $cate->message = $request->message;
         $cate->save();
 
         Session::flash('success', "Cập nhật thành công!!!");
 
-        return redirect('admin/category');
+        return redirect('admin/contact');
     }
 
     /**
@@ -111,12 +116,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $cate = Category::findOrFail($id);
+        $cate = Contact::findOrFail($id);
         $cate->delete();
 
         Session::flash('success', "Bạn đã xóa thành công");
-        return redirect('admin/category');
-
-
+        return redirect('admin/contact');
     }
 }

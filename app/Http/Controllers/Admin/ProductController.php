@@ -65,6 +65,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'price' => 'required|regex:/[0-9]{1,20}/',
+            'discount' => 'required|regex:/[0-9]{1,100}/',
+            'description' => 'required|max:800',
+            'thumbnail' => 'image|mimes:jpg,png,gif',
+        ]);
+
+
         $thumbnail = 'no-image.jpg';
         if ($request->hasFile('thumbnail')){
             $file = $request->file('thumbnail');

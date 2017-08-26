@@ -101,7 +101,7 @@
                             <label class="control-label col-md-12" for="name">Họ tên</label>
                             <div class="col-md-5">
                                 {!! Form::text('name', null, ["class" => "form-control", "id" => "name", "placeholder" => "Enter name"]) !!}
-                                {!! $errors->first('name', '<span id="name-error" class="help-block help-block-error">:message</span>') !!}
+                                {!! $errors->first('name', '<span id="name-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
                             </div>
                         </div>
 
@@ -109,7 +109,7 @@
                             <label class="control-label col-md-12" for="email">Email</label>
                             <div class="col-md-5">
                                 {!! Form::text('email', null, ["class" => "form-control", "id" => "email", "placeholder" => "Enter email"]) !!}
-                                {!! $errors->first('email', '<span id="email-error" class="help-block help-block-error">:message</span>') !!}
+                                {!! $errors->first('email', '<span id="email-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
                             </div>
                         </div>
 
@@ -117,7 +117,7 @@
                             <label class="control-label col-md-12"  for="phone">Số điện thoại</label>
                             <div class="col-md-5">
                                 {!! Form::text('phone', null, ["class" => "form-control", "id" => "phone", "placeholder" => "Enter phone"]) !!}
-                                {!! $errors->first('phone', '<span id="phone-error" class="help-block help-block-error">:message</span>') !!}
+                                {!! $errors->first('phone', '<span id="phone-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
                             </div>
                         </div>
 
@@ -125,7 +125,7 @@
                             <label class="control-label col-md-12"  for="address">Địa chỉ</label>
                             <div class="col-md-5">
                                 {!! Form::text('address', null, ["class" => "form-control", "id" => "address", "placeholder" => "Enter address"]) !!}
-                                {!! $errors->first('address', '<span id="address-error" class="help-block help-block-error">:message</span>') !!}
+                                {!! $errors->first('address', '<span id="address-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
                             </div>
                         </div>
 
@@ -133,32 +133,12 @@
                             <label class="control-label col-md-12"  for="note">Ghi chú</label>
                             <div class="col-md-10">
                                 {!! Form::textarea('note', null, ['rows' => 5, 'cols' => '150', "class" => "form-control", "id" => "note", "placeholder" => "Enter note"]) !!}
-                                {!! $errors->first('note', '<span id="note-error" class="help-block help-block-error">:message</span>') !!}
+                                {!! $errors->first('note', '<span id="note-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
                             </div>
                         </div>
 
                         <button class="control-label col-md-1"  type="submit" class="btn btn-default">Đặt hàng</button>
                     {!! Form::close() !!}
-
-                    {{--<div class="in-check" >
-                        <h3 style="color: greenyellow; font-family: FontAwesome; font-weight: bold">2. Thông tin người nhận</h3>
-                        {!! Form::open(['method' => 'POST', 'url' => 'cart/checkout']) !!}
-                            <p style="margin-left: 25px;">Họ tên</p>
-                            {!! Form::text('name', null, null) !!}
-                            <br><br>
-                            <p style="margin-left: 25px;">Số điện thoại</p>
-                            {!! Form::text('phone', null, null) !!}
-                            <p style="margin-left: 25px;">Email</p>
-                            {!! Form::text('email', null, null) !!}
-                            <p style="margin-left: 25px;">Địa chỉ</p>
-                            {!! Form::text('address', null, null) !!}
-                            <h4><b>Thông tin thêm</b></h4>
-                            <p style="margin-left: 25px;">Ghi chú đơn hàng</p>
-                            {!! Form::textarea('note', null, ['rows' => 5, 'cols' => 150]) !!}
-
-                            <input  type="submit" name="btnSubmit" value="Đặt hàng" />
-                        {!! Form::close() !!}
-                    </div>--}}
                 </div>
             </div>
         </div>

@@ -15,9 +15,15 @@ class OrderdetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $orderdetail = Orderdetail::paginate(5);
+        if ($request->has('keyword')){
+            $keyword = $request->get('keyword');
+            $orderdetail = Orderdetail::where('order_id', 'like', '%' . $keyword . '%')->paginate(5);
+        }else{
+            $orderdetail = Orderdetail::paginate(5);
+        }
+
 
         return view('admin.orderdetail.show', ['orderdetail' => $orderdetail]);
     }
@@ -55,12 +61,13 @@ class OrderdetailController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'quantity' => 'required|regex:/[0-9]{1,100}/'
+        ]);
 
         $p = new Orderdetail();
         $p->product_id = $request->product_id;
-        $p->price = $request->price;
         $p->quantity = $request->quantity;
-        $p->order_id = $request->order_id;
         $p->save();
 
         Session::flash('success', 'Thêm mới ảnh thành công');

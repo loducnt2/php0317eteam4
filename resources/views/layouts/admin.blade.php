@@ -31,9 +31,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url('admin') }}">
-                {{--<img src="{{ asset('assets/img/logo.png" alt="" />--}}
                 <span style="font-size: 29px;font-weight: bold;line-height: 1.5;color: red">
-                    SHOP ĐHQ
+                    <marquee behavior="slide">Cud Shop</marquee>
                 </span>
             </a>
         </div>
@@ -43,48 +42,31 @@
             <!-- main dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <span class="top-label label label-danger">3</span><i class="fa fa-envelope fa-3x"></i>
+                    <span class="top-label label label-danger">{{--{{ number_format($contact) }} --}}</span><i class="fa fa-envelope fa-3x"></i>
                 </a>
                 <!-- dropdown-messages -->
                 <ul class="dropdown-menu dropdown-messages">
+                    {{--@if(isset($cmt))
+                        @foreach($cmt as $item)
+                        <li>
+
+                            <a href="#">
+                                <div>
+                                    <strong><span class=" label label-info">Jonney Depp </span></strong>
+                                    <span class="pull-right text-muted">
+                                            <em>Yesterday</em>
+                                        </span>
+                                </div>
+                                <div>{{ $item->email }}</div>
+                            </a>
+                        </li>
+                        @endforeach
+                    @endif
+                        <li class="divider"></li>
+                        --}}
+
                     <li>
-                        <a href="#">
-                            <div>
-                                <strong><span class=" label label-danger">Andrew Smith</span></strong>
-                                <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                            </div>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong><span class=" label label-info">{{ Auth::User()->name }}</span></strong>
-                                <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                            </div>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong><span class=" label label-success">Jonney Depp</span></strong>
-                                <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                            </div>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a class="text-center" href="#">
+                        <a class="text-center" href="{{ url('admin/contact') }}">
                             <strong>Read All Messages</strong>
                             <i class="fa fa-angle-right"></i>
                         </a>
@@ -92,6 +74,7 @@
                 </ul>
                 <!-- end dropdown-messages -->
             </li>
+
 
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -242,14 +225,24 @@
 
                         <ul class="dropdown-menu dropdown-user">
 
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                            <li><a href="{{ url('account/detail/' . Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i>User Profile</a>
                             </li>
 
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                            <li><a href="{{ url('admin/user/' . Auth::user()->id . '/edit') }}"><i class="fa fa-gear fa-fw"></i>Settings</a>
                             </li>
 
                             <li class="divider"></li>
-                            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();" style="color: black;">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+
                             </li>
 
                         </ul>

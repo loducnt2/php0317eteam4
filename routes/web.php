@@ -22,7 +22,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 
-Route::get('account/detail/{id}', 'UserController@show');      /*----------------Chưa--------------*/
+Route::get('account/detail/{id}', 'UserController@show');
+
 
 Route::get('cart', 'CartController@index');
 Route::get('cart/add/{id}', 'CartController@store');
@@ -63,6 +64,10 @@ Route::group(['middleware'  => ['auth']], function (){
         Route::resource('admin/warranty', 'Admin\WarrantyController');
 
         Route::resource('admin/comment', 'Admin\CommentController');
+
+        Route::resource('admin/contact', 'Admin\ContactController');
+
+        Route::resource('admin/group', 'Admin\GroupController');
 
     });
 });

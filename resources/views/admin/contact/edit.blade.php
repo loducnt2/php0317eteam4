@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title') Create Image @endsection
+@section('title'){{ $contact->name }} @endsection
 
 @section('content')
     <div id="page-wrapper">
@@ -16,31 +16,30 @@
                 <!-- Form Elements -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <p style="color: red;">Create New Image</p>
+                        <p style="color: red;">{{ $contact->name }}</p>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                {{--{!! Form::open(['type' => 'POST', 'url' => 'admin/image', 'role' => 'form']) !!}--}}
-                                {!! Form::open(['type' => 'POST', 'url' => 'admin/image','files' =>true, 'role' => 'form']) !!}
+                                {{--{!! Form::open(['method' => 'PATCH', 'url' => 'admin/contact/' . $contact->id, 'role' => 'form']) !!}--}}
+                                {!! Form::open(['method' => 'PATCH', 'url' => 'admin/contact/' . $contact->id, 'role' => 'form']) !!}
 
                                 <div class="form-group">
-                                    <label>Product</label>
-                                    {{--{!! Form::select('product_id',$products , null, ['class' => 'form-control']) !!}--}}
-                                    <select name="product_id" class="form-control">
-                                        @foreach($products as $item)
-                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    <p class="help-block">Loại mặt hàng</p>
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" name="name" value="{{ $contact->name }}" >
                                 </div>
-
                                 <div class="form-group">
-                                    <label>Image</label>
-                                    <input type="file" class="form-control" name="name" >
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control" name="phone" value="{{ $contact->phone }}" >
                                 </div>
-                                {!!  $errors->first('name', '<span id="name-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" name="email" value="{{ $contact->email }}" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Message</label>
+                                    <input type="text" class="form-control" name="message" value="{{ $contact->message }}" >
+                                </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn btn-success">Reset</button>

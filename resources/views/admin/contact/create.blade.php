@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title') Create Supplier @endsection
+@section('title') Create Contact @endsection
 
 @section('content')
     <div id="page-wrapper">
@@ -16,13 +16,12 @@
                 <!-- Form Elements -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <p style="color: red;">Create New Supplier</p>
+                        <p style="color: red;">Create New Contact</p>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                {{--{!! Form::open(['type' => 'POST', 'url' => 'admin/supplier', 'role' => 'form']) !!}--}}
-                                {!! Form::open(['type' => 'POST', 'url' => 'admin/supplier', 'role' => 'form']) !!}
+                                {!! Form::open(['type' => 'POST', 'url' => 'admin/contact', 'role' => 'form']) !!}
 
                                 <div class="form-group">
                                     <label>Name</label>
@@ -30,27 +29,11 @@
                                 </div>
                                 {!!  $errors->first('name', '<span id="name-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
-
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" class="form-control" name="address" >
-                                </div>
-                                {!!  $errors->first('address', '<span id="address-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
-
-                                <div class="form-group">
-                                    <label>Website</label>
-                                    <input type="text" class="form-control" name="website" >
-                                </div>
-                                {!!  $errors->first('website', '<span id="website-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
-
                                 <div class="form-group">
                                     <label>Phone</label>
                                     <input type="text" class="form-control" name="phone" >
                                 </div>
                                 {!!  $errors->first('phone', '<span id="phone-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
-
 
                                 <div class="form-group">
                                     <label>Email</label>
@@ -58,6 +41,11 @@
                                 </div>
                                 {!!  $errors->first('email', '<span id="eamil-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
+                                <div class="form-group">
+                                    <label>Message</label>
+                                    <input type="text" class="form-control" name="message" >
+                                </div>
+                                {!!  $errors->first('message', '<span id="message-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn btn-success">Reset</button>
