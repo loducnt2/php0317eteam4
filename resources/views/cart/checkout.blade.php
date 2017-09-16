@@ -95,50 +95,102 @@
 
 
                     <h3 style="color: greenyellow; font-family: FontAwesome; font-weight: bold">2. Thông tin người nhận</h3>
+
+                   {{-- {!! Form::open(['method' => 'POST', 'url' => 'cart/checkout']) !!}--}}
+
+                        @if(isset( Auth::user()->id))
                     {!! Form::open(['method' => 'POST', 'url' => 'cart/checkout']) !!}
-
-                        <div class="form-group">
-                            <label class="control-label col-md-12" for="name">Họ tên</label>
-                            <div class="col-md-5">
-                                {!! Form::text('name', null, ["class" => "form-control", "id" => "name", "placeholder" => "Enter name"]) !!}
-                                {!! $errors->first('name', '<span id="name-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                            <div class="form-group">
+                                <label class="control-label col-md-12" for="name">Họ tên</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}"/>
+                                    {!! $errors->first('name', '<span id="name-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-md-12" for="email">Email</label>
-                            <div class="col-md-5">
-                                {!! Form::text('email', null, ["class" => "form-control", "id" => "email", "placeholder" => "Enter email"]) !!}
-                                {!! $errors->first('email', '<span id="email-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                            <div class="form-group">
+                                <label class="control-label col-md-12" for="email">Email</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="email" value="{{ Auth::user()->email }}"/>
+                                    {!! $errors->first('email', '<span id="email-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-md-12"  for="phone">Số điện thoại</label>
-                            <div class="col-md-5">
-                                {!! Form::text('phone', null, ["class" => "form-control", "id" => "phone", "placeholder" => "Enter phone"]) !!}
-                                {!! $errors->first('phone', '<span id="phone-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                            <div class="form-group">
+                                <label class="control-label col-md-12"  for="phone">Số điện thoại</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="phone" value="{{ Auth::user()->phone }}"/>
+                                    {!! $errors->first('phone', '<span id="phone-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-md-12"  for="address">Địa chỉ</label>
-                            <div class="col-md-5">
-                                {!! Form::text('address', null, ["class" => "form-control", "id" => "address", "placeholder" => "Enter address"]) !!}
-                                {!! $errors->first('address', '<span id="address-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                            <div class="form-group">
+                                <label class="control-label col-md-12"  for="address">Địa chỉ</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" name="address" value="{{ Auth::user()->address }}"/>
+                                    {!! $errors->first('address', '<span id="address-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-md-12"  for="note">Ghi chú</label>
-                            <div class="col-md-10">
-                                {!! Form::textarea('note', null, ['rows' => 5, 'cols' => '150', "class" => "form-control", "id" => "note", "placeholder" => "Enter note"]) !!}
-                                {!! $errors->first('note', '<span id="note-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                            <div class="form-group">
+                                <label class="control-label col-md-12"  for="note">Ghi chú</label>
+                                <div class="col-md-10">
+                                    <textarea name="note" rows="5" cols="150" class="form-control" placeholder="Enter note"></textarea>
+                                    {!! $errors->first('note', '<span id="note-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                                </div>
                             </div>
-                        </div>
 
-                        <button class="control-label col-md-1"  type="submit" class="btn btn-default">Đặt hàng</button>
+                            <button class="control-label col-md-1"  type="submit" class="btn btn-default">Đặt hàng</button>
                     {!! Form::close() !!}
+                        @endif
+
+                        @if(!isset( Auth::user()->id))
+                            {!! Form::open(['method' => 'POST', 'url' => 'cart/checkout']) !!}
+                            <div class="form-group">
+                                <label class="control-label col-md-12" for="name">Họ tên</label>
+                                <div class="col-md-5">
+                                    {!! Form::text('name', null, ["class" => "form-control", "id" => "name", "placeholder" => "Enter name"]) !!}
+                                    {!! $errors->first('name', '<span id="name-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12" for="email">Email</label>
+                                <div class="col-md-5">
+                                    {!! Form::text('email', null, ["class" => "form-control", "id" => "email", "placeholder" => "Enter email"]) !!}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12"  for="phone">Số điện thoại</label>
+                                <div class="col-md-5">
+                                    {!! Form::text('phone', null, ["class" => "form-control", "id" => "phone", "placeholder" => "Enter phone"]) !!}
+                                    {!! $errors->first('phone', '<span id="phone-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12"  for="address">Địa chỉ</label>
+                                <div class="col-md-5">
+                                    {!! Form::text('address', null, ["class" => "form-control", "id" => "address", "placeholder" => "Enter address"]) !!}
+                                    {!! $errors->first('address', '<span id="address-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12"  for="note">Ghi chú</label>
+                                <div class="col-md-10">
+                                    {!! Form::textarea('note', null, ['rows' => 5, 'cols' => '150', "class" => "form-control", "id" => "note", "placeholder" => "Enter note"]) !!}
+                                    {!! $errors->first('note', '<span id="note-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
+                                </div>
+                            </div>
+
+                            <button class="control-label col-md-1"  type="submit" class="btn btn-default">Đặt hàng</button>
+
+                            {!! Form::close() !!}
+                        @endif
+                    {{--{!! Form::close() !!}--}}
+
                 </div>
             </div>
         </div>

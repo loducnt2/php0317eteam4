@@ -32,5 +32,12 @@ class Helper
 
         return $cate;
     }
+	
+	public static function categorynam(){
+        $cate = \App\Category::all()
+            ->where('parent_id', '=', 1 OR 2);
+
+        return $cate;
+    }
 
 }

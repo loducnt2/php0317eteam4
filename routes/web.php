@@ -33,6 +33,7 @@ Route::post('cart/checkout', 'CartController@save');
 
 Route::get('product/detail/{id}', 'ProductController@show');
 Route::get('category/{id}', 'ProductController@category');
+
 Route::get('discount', 'ProductController@khuyenmai');
 Route::get('banchay', 'ProductController@banchay');
 Route::get('product', 'ProductController@index');   /*--------Tìm kiếm----------*/
@@ -40,7 +41,11 @@ Route::get('all', 'ProductController@all');
 
 Route::resource('contact', 'ContactController');
 Route::get('introduce', 'ContactController@gioithieu');
+Route::get('doitra', 'ContactController@doitra');
 Route::get('blog', 'ContactController@blog');                           /* chưa content*/
+
+Route::get('supplier/detail/{id}', 'SupplierController@show');
+
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Contact;
 use Session;
+use App\Product;
 
 class ContactController extends Controller
 {
@@ -21,6 +22,22 @@ class ContactController extends Controller
     public function gioithieu()
     {
         return view('contact.gioithieu');
+    }
+
+    public function doitra()
+    {
+        return view('contact.doitra');
+    }
+
+    public function khuyenmai()
+    {
+        $products = Product::select('products.*')
+            ->where('discount','>', '0')
+            ->paginate(12);
+
+        return view('contact.doitra', [
+            'products' => $products
+        ]);
     }
 
     public function blog()

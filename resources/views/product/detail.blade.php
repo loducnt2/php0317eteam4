@@ -2,6 +2,10 @@
 
 @section('title') {{ $product->name }}  @endsection
 
+{{--@section('css')
+    <link href="{{ asset('css/detail.css') }}" rel="stylesheet" type="text/css" />
+@endsection--}}
+
 
 @section('js')
     <script type="text/javascript">
@@ -87,18 +91,17 @@
                                         <li><a href="#"><i> </i></a></li>
                                     </ul>
                                     <div class="review">
-                                        <a href="#"> 1 customer review </a>
+                                        <a href="#"> 100% đánh giá tích cực </a>
 
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
 
                                 <h5 class="item_price">{{ number_format($product->price) }} VND</h5>
+
                                 <p>
                                     {{ $product->description }}
                                 </p>
-
-
 
                                 <a href="{{ url('cart/add/'. $product->id) }}" class="add-cart item_add">ADD TO CART</a>
                             </div>
@@ -106,32 +109,9 @@
                         <div class="clearfix"> </div>
                     </div>
 
-                    <div class="tabs">
-                        <ul class="menu_drop">
-                            <li class="item1"><a href="#"><img src="{{ url('images/arrow.png') }}" alt="">Description</a>
-                                <ul>
-                                    <li class="subitem1"><a href="#">{{ $product->description }}</a></li>
-                                </ul>
-                            </li>
 
-                            <li class="item2"><a href="#"><img src="{{ url('images/arrow.png') }}" alt="">Supplier information</a>
-                                <ul>
-                                    <li class="subitem2" style="color: white">Sản phẩm được sản xuất bởi công ty</li>
-                                    {{--@if(isset($product))
-                                        @foreach($product as $it)
-                                            <li class="subitem2" style="color: white"><a href="{{ url('supplier/detail/' . $it->id) }}" style="color: green; text-align: center">{{ $it->supplier->name }}</a></li>
-                                        @endforeach
-                                    @endif--}}
-                                    {{--<li class="subitem2" style="color: white">
-                                        <a href="{{ url('supplier/detail/' . $supplier->id) }}" style="color: green; text-align: center">
-                                            {{ $product->supplier->name }}
-                                        </a>
-                                    </li>--}}
-                                </ul>
-                            </li>
 
-                        </ul>
-                    </div>
+                    <h3 style="margin-top: 10px;">Sản phẩm liên quan</h3>
 
                     <div class="latestproducts">
                         <div class="product-one">
@@ -161,12 +141,39 @@
                     </div>
 
                     <div class="tabs">
-                            <h3 style="color: #17bf08;">1. Chi tiết sản phẩm</h3>
-                            {{ $product->description }}
+                            <div class="detail">
+                                <h3>2. Chi tiết sản phẩm</h3>
 
-                            <h3 style="color: #17bf08;">2. Đánh giá phản hồi</h3>
+                                <p align="justify" class="pText">
+                                    <em class="do">Cud Shop</em> xin kính chào quý khách. Khi mua hàng của chúng tôi quý khách sẽ được:
+                                    <br>
+                                    Cam kết hàng giống như hình <em class="do">100%</em>. <br>
+                                    Hàng hóa được đóng hộp chu đáo trước khi giao <br>
+                                    Hàng giao tận nơi quý khách hàng ở <br>
+                                    Khách hàng nhận hàng, kiểm tra hàng mới thanh toán <br>
+                                    <em class="do">Đổi trả hàng trong vòng 7 ngày</em> nếu không ưng ý sản phẩm <br>
+                                    Xem quy định đổi trả <a href="{{ url('doitra') }}">Tại đây</a> <br>
+                                    Được <em class="do">hoàn tiền 100%</em> nếu sản phẩm không giống mô tả <br>
+                                </p>
 
-                            <table border="1px" width="80%">
+                                <p class="pName">
+                                    <b>{{ $product->name }}</b>
+
+                                </p>
+                                <p>
+                                    {{ $product->content }}
+                                </p>
+                                <img  src="{{ asset('uploads/product/'.$product->thumbnail) }}" alt="{{ $it->title }}"  />
+
+                                <p class="pText">
+                                    Sản phẩm được phân phối chính thức ở <a href="{{ url('supplier/detail/' . $product->supplier_id) }}">{{ $product->supplier->name }}</a>
+
+                                </p>
+                            </div>
+
+                            <h3>3. Đánh giá phản hồi</h3>
+
+                            {{--<table border="1px" width="80%">
                                 <tr style="background: #cccccc">
                                     <td >Người mua</td>
                                     <td >Phản hồi</td>
@@ -181,13 +188,13 @@
                                     @endforeach
                                 @endif
 
-                            </table>
+                            </table>--}}
 
-                            <b>Bạn có câu hỏi với sản phẩm này? Đặt câu hỏi với shop.</b><br>
-                            <form>
-                                <textarea rows="3" cols="100"></textarea>
-                                <input type="submit" name="btnsubmit" value="Gửi">
-                            </form>
+                            <p class="pText" style="color: black;">Bạn có câu hỏi với sản phẩm này? Đặt câu hỏi với shop.</p>
+                        <form action="" method="get">
+                            <textarea rows="3" cols="100"></textarea>
+                            <input type="submit" name="btnsubmit" value="Gửi">
+                        </form>
                     </div>
                 </div>
                 <div class="clearfix"> </div>

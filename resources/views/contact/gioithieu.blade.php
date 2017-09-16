@@ -9,11 +9,10 @@
 @section('content')
 
     <style>
-
-
         .wrapper {
             width: 85%;
-            height: 1176px;
+            /*height: 1176px;*/
+            height: auto;
             margin: auto;
             background-color: rgba(46, 37, 36, 0.57);
             border: 1px solid white;
@@ -50,6 +49,31 @@
             width: 95%;
             height: 440px;
             margin: auto;
+        }
+
+        .phan5{
+            width: 95%;
+            height: 625px;
+
+            margin: auto;
+        }
+        .thut{
+            margin-left: 5px ;
+            text-align: justify;
+            color: white;
+            font-size: 17px;
+        }
+        .thut a{
+            color : #ccc;
+            text-decoration: none;
+        }
+        .thut a:hover{
+            color: #334580;
+        }
+
+        .phan5 b{
+            color: white;
+            font-size: 20px;
         }
     </style>
 
@@ -129,6 +153,42 @@
                         Cud  SHOP  rất vui được phục vụ các bạn!
                     </p>
                 </ul>
+            </div>
+
+            <div class="phan5">
+                <h1 style="color: white;">Quy định đổi trả:</h1>
+                <b>1. Thời hạn đổi/ trả sản phẩm</b> <br><br>
+                <p class="thut">
+                    Nhằm đảm bảo quyền lợi người mua, sau khi nhận hàng nếu bạn không hài lòng và muốn đổi/ trả sản phẩm,
+                    vui lòng liên hệ với Cud Shop trong vòng 24h kể từ khi nhận hàng.
+                    Chúng tôi sẽ tiếp nhận thông tin, giúp bạn phân giải và bảo vệ quyền lợi của bạn theo quy trình xử
+                    lý khiếu nại của <a href="#">cudshop.vn</a>
+                </p>
+                <p class="thut">
+                    Sau thời hạn này, nếu không nhận được bất kỳ thông tin nào từ bạn thì hệ thống sẽ tự động Hoàn tất giao dịch.
+                    Tất cả các vấn đề khiếu nại liên quan đến đơn hàng sẽ không còn hiệu lực.
+                </p>
+                <br>
+
+                <b>2. Điều kiện đổi/ trả sản phẩm</b> <br><br>
+                <p class="thut">
+                    + Điều kiện chung bắt buộc:
+                </p>
+                <p class="thut">. Sản phẩm còn trong thời hạn đổi/ trả.</p>
+                <p class="thut">.  Sản phẩm còn nguyên bao hộp như ban đầu, còn nguyên tem mác và các phụ kiện đi kèm (nếu có)></p>
+                <p class="thut">. Sản phẩm chưa có dấu hiệu đã bị sử dụng hoặc giặt ủi</p>
+                <p class="thut">+ Đối với từng trường hợp cụ thể:</p>
+                <p class="thut">
+                    – Nhận sản phẩm không đúng yêu cầu (không đúng size, màu sắc, chất liệu, kiểu dáng, giao thiếu):
+                    trong thời hạn đổi/ trả còn hiệu lực, bạn vui lòng tạo form khiếu nại theo hướng dẫn.
+                    Chúng tôi sẽ tiếp nhận thông tin, giúp bạn phân giải và bảo vệ quyền lợi của bạn theo quy trình xử
+                    lý khiếu nại của Cudshop.vn
+                </p>
+                <p class="thut">
+                    – Nhận sản phẩm đúng yêu cầu nhưng bạn vẫn muốn đổi vì lý do cá nhân: Cudshop không có cơ sở để can
+                    thiệp trong trường hợp này, bạn vui lòng liên hệ trực tiếp với Shop để được hỗ trợ.
+                </p>
+
             </div>
         </div>
     </div>

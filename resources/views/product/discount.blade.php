@@ -38,9 +38,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                            @if($key > 0 && (($key + 1) % 4) == 0)
-                                <div class="clearfix"></div>
+                    @if($key > 0 && (($key + 1) % 4) == 0)
+                         <div class="clearfix"></div>
                 </div>
 
                 <div class="product-one">

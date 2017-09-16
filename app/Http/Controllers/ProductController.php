@@ -81,7 +81,7 @@ class ProductController extends Controller
             ->paginate(2);
 
 
-        $cmt = Comment::findOrFail($id);
+        /*$cmt = Comment::findOrFail($id);
 
         $cmt_id = $cmt->product->id;
 
@@ -90,33 +90,23 @@ class ProductController extends Controller
             ->where('products.id', $cmt_id)
             ->where('comments.product_id', '=', $id);
 
-        /*echo "<pre>";
-        print_r($comment);
-            die();*/
-
-        /*echo "<pre>";
+        echo "<pre>";
         print_r($image->toArray());
         die();*/
 
         /*$supplier = Supplier::findOrFail($id);*/
 
 
+
         return view('product.detail', [
             'product' => $product,
             'related' => $related,
-            'comment' => $comment,/*
+            /*'comment' => $comment,
             'supplier' => $supplier*/
         ]);
     }
 
-    /*public function showsup($id)
-    {
-        $supplier = Supplier::findOrFail($id);
 
-        return view('supplier.detail', [
-            'supplier' => $supplier
-        ]);
-    }*/
     /**
      * Show the form for editing the specified resource.
      *

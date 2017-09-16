@@ -54,7 +54,8 @@
                             <li><span style="color: orangered">Product Name</span></li>
                             <li><span style="color: orangered">Unit Price</span></li>
                             <li><span style="color: orangered">Quantity</span></li>
-                            {{--<li><span>Action</span></li>--}}
+
+                            {{--<li style="color: orangered">Action</li>--}}
                             <div class="clearfix"> </div>
                         </ul>
 
@@ -72,32 +73,17 @@
                                         {{ number_format($item->price * $item->qty) }}
                                         <?php $totalAmount += ($item->price * $item->qty) ; ?>
                                     </li>
-                                    <li><span class="name">
+                                    <li><span class="cost">
                                         <a href="{{ url('cart/remove/'. $item->id) }}"><img src="{{ url('images/close.png') }}" /></a></span>
                                     </li>
+
                                 <div class="clearfix"> </div>
                             </ul>
                         @endforeach
-                        {{--<ul class=" cart-header1">
-                            <div class="close2"> </div>
-                            <li class="ring-in"><a href="single.html" ><img src="images/c-2.jpg" class="img-responsive" alt=""></a>
-                            </li>
-                            <li><span class="name">Analog Watches</span></li>
-                            <li><span class="cost">$ 300.00</span></li>
-                            <li><span>Free</span>
-                                <p>Delivered in 2-3 business days</p></li>
-                            <div class="clearfix"> </div>
-                        </ul>
-                        <ul class="cart-header2">
-                            <div class="close3"> </div>
-                            <li class="ring-in"><a href="single.html" ><img src="images/c-3.jpg" class="img-responsive" alt=""></a>
-                            </li>
-                            <li><span class="name">Analog Watches</span></li>
-                            <li><span class="cost">$ 360.00</span></li>
-                            <li><span>Free</span>
-                                <p>Delivered in 2-3 business days</p></li>
-                            <div class="clearfix"> </div>
-                        </ul>--}}
+
+
+
+
 
                         <ul class="cart-header2">
                             <li><a href="{{ url('home')  }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></li>

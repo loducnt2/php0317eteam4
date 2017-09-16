@@ -32,7 +32,9 @@
             </button>
             <a class="navbar-brand" href="{{ url('admin') }}">
                 <span style="font-size: 29px;font-weight: bold;line-height: 1.5;color: red">
-                    <marquee behavior="slide">Cud Shop</marquee>
+                    <marquee behavior="slide">
+                        <img src="{{ url('images/cud-shop.png') }}" style="width: 250px; height: 59px;">
+                    </marquee>
                 </span>
             </a>
         </div>

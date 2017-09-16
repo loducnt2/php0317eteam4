@@ -46,11 +46,16 @@ class SupplierController extends Controller
      */
     public function show($id)
     {
-        /*$supplier = Supplier::findOrFail($id);
+        $supplier = Supplier::findOrFail($id);
+
+       /* echo "<pre>";
+        print_r($supplier->toArray());
+        die();*/
+
 
         return view('supplier.detail', [
             'supplier' => $supplier
-        ]);*/
+        ]);
     }
 
     /**

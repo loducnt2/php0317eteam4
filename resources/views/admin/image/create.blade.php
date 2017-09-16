@@ -39,7 +39,6 @@
                                     <label>Image</label>
                                     {!! Form::file('name', null, ['class' => 'form-control', 'name' => 'phone']) !!}
                                 </div>
-                                {!!  $errors->first('name', '<span id="name-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
 
 
                                 <button type="submit" class="btn btn-primary">Submit</button>

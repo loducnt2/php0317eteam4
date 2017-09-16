@@ -19,9 +19,9 @@ class ImageController extends Controller
     {
         if ($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $image = Image::where('name', 'like', '%' . $keyword . '%')->paginate(5);
+            $image = Image::where('name', 'like', '%' . $keyword . '%')->paginate(10);
         }else{
-            $image = Image::paginate(5);
+            $image = Image::paginate(10);
         }
 
 
@@ -49,9 +49,6 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'image|mimes:jpg,png,gif',
-        ]);
 
         $image = 'no-image.jpg';
         if ($request->hasFile('name')){

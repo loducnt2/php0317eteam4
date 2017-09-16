@@ -86,6 +86,10 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
                                             colspan="1" aria-label="Browser: activate to sort column ascending"
+                                            style="width: 245px;">Content
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="Browser: activate to sort column ascending"
                                             style="width: 245px;">Supplier
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
@@ -111,6 +115,7 @@
                                                 <td>{{ $item->price }}</td>
                                                 <td>{{ $item->discount }}</td>
                                                 <td>{{ $item->description }}</td>
+                                                <td>{{ $item->content }}</td>
                                                 <td>{{ $item->supplier->name }}</td>
                                                 <td>{{ $item->status }}</td>
                                                 <td>

@@ -19,23 +19,12 @@
             <h2 style="color: #17bf08; text-align: center; ">{{ $item->category->title }}</h2>
         @endforeach
     @endif
-
-    @if (!isset($products)){
-        <h2 style="color: #17bf08; text-align: center; ">Sản phẩm hiện hết hàng !!!</h2>
+	
+	@if ($products == ''){
+        <h2 style="color: red; text-align: center; ">Sản phẩm hiện hết hàng, Quý khách có thể chọn các mẫu sản phẩm khác !!!</h2>
     @endif--}}
-
-    <?php
-/*            if (isset($products)){
-                foreach ($products as $item){
-                    echo $item->category->title;
-                }
-            }else{
-                echo "Sản phẩm hiện hết hàng !!!";
-            }
-    */?>
-
-
-
+	
+	
 
 
     <div class="product">
@@ -70,10 +59,12 @@
 
                         @endforeach
                     @endif
+					
                     <div class="clearfix"></div>
                 </div>
 
             </div>
         </div>
     </div>
+	
 @endsection

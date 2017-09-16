@@ -29,9 +29,9 @@ class ProductController extends Controller
     {
         if($request->has('keyword')){
             $keyword = $request->get('keyword');
-            $product = Product::where('name','like', '%' . $keyword . '%')->paginate(5);
+            $product = Product::where('name','like', '%' . $keyword . '%')->paginate(10);
         }else{
-            $product = Product::paginate(5);
+            $product = Product::paginate(10);
         }
 
         /*echo "<pre>";
@@ -71,6 +71,7 @@ class ProductController extends Controller
             'discount' => 'required|regex:/[0-9]{1,100}/',
             'description' => 'required',
             'thumbnail' => 'image|mimes:jpg,png,gif',
+            'content' => 'required',
         ]);
 
 
@@ -88,6 +89,9 @@ class ProductController extends Controller
         $p->price = $request->price;
         $p->discount = $request->discount;
         $p->description = $request->description;
+
+        $p->content = $request->content;
+
         $p->status = $request->status;
         $p->thumbnail = $thumbnail;
         $p->save();
@@ -152,6 +156,9 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->discount = $request->discount;
         $product->description = $request->description;
+
+        $product->content = $request->content;
+
         $product->status = $request->status;
         $product->thumbnail = $thumbnail;
         $product->save();

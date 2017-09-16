@@ -28,6 +28,12 @@ section,
 summary {
   display: block;
 }
+
+/*----------------*/
+.sngl-top{
+  border-bottom: 1px solid red;
+}
+/*--------------------*/
 audio,
 canvas,
 progress,

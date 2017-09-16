@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Cart;
 use Session;
 use Auth;
+use App\User;
 
 class CartController extends Controller
 {
@@ -25,20 +26,20 @@ class CartController extends Controller
 
     public function checkout()
     {
-        return view('cart.checkout');
+       return view('cart.checkout');
     }
 
 
     public function save(Request $request){
         if(Cart::content()->count() <= 0) {
-            Session::flash('error', 'Không có san phẩm nào trong giỏ hàng - Không thể đặt hàng!!!');
+            Session::flash('error', 'Không có sản phẩm nào trong giỏ hàng - Không thể đặt hàng!!!');
 
             return redirect()->back();
         }
 
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required',
             'phone' => 'required|regex:/(0)[0-9]{9,10}/',
             'address' => 'required',
             'note' => 'required'
@@ -83,8 +84,6 @@ class CartController extends Controller
 
         //tao message
         Session::flash('success', 'Đặt hàng thành công!!!');
-
-        //chuyen ve trang nao do, co the la trang chu
         return redirect('/');
     }
 
@@ -124,7 +123,7 @@ class CartController extends Controller
                     ]
                 ]
             );
-            Session::flash('success', 'Them moi san pham vao gio hang thành công!!!');
+            Session::flash('success', 'Thêm mới sản phẩm vào giỏ hàng thành công!!!');
         }else {
             Session::flash('error', 'Sản phẩm đã hết hàng!!!');
         }
@@ -184,6 +183,8 @@ class CartController extends Controller
                 }
             }
         }
+
+
         return redirect()->back();
     }
 }

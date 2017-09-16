@@ -25,6 +25,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!--                   client                     -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ asset('css/detail.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/doitra.css') }}" rel="stylesheet" type="text/css" />
     <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
     <script src="{{ asset('js/jquery-1.11.0.min.js') }}"></script>
     <!--Custom-Theme-files-->
@@ -39,7 +41,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--start-menu-->
-    <script src="{{ asset('js/simpleCart.min.js') }}"> </script>
+    {{--<script src="{{ asset('js/simpleCart.min.js') }}"></script>--}}
+            {{--Cái lỗi nó ko thay đổi số tiền khi xóa sản phẩm thì xóa đi cái file js đó - chính js đó nó gây ra--}}
     <link href="{{ asset('css/memenu.css') }}" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="{{ asset('js/memenu.js') }}"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
@@ -90,12 +93,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <?php $total += $item->price; ?>
                                     @endforeach
                                 @endif
-                                {{ number_format($total) }}
+                                {{ number_format($total) }} VNĐ
                             </span>
                         </div>
                         <a  href="{{ url('cart') }}"><img src="{{ url('images/cart-1.png') }}" alt="" /></a>
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+
+                    <p><a href="{{ url('cart') }}" class="simpleCart_empty">Cart Detail</a></p>
+
                     <div class="clearfix"> </div>
                 </div>
             </div>
@@ -145,7 +150,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--start-logo-->
 <div class="logo">
     <a href="{{ url('home') }}">
-        <h1 style="color: red;">Cud Shop</h1>
+        <h1 style="color: red;"><img src="{{ url('images/cud.png') }}" style="width: 250px; height: 59px;"></h1>
     </a>
 </div>
 <!--start-logo-->
@@ -242,7 +247,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <!--product-end-->
 <!--information-starts-->
-<div class="information" style=" background: #f6eddc;">
+<div class="information" style=" background: #efefef;">
     <div class="container">
         <div class="infor-top">
             <div class="col-md-3 infor-left">

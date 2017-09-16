@@ -33,6 +33,13 @@
     </div>
 
     <div class="form-group">
+        <label>Content</label>
+        {!! Form::text('content', null, ['class' => 'form-control']) !!}
+        {!!  $errors->first('content', '<span id="content-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
+
+    </div>
+
+    <div class="form-group">
         <label>Status</label>
         {{--{!! Form::select('status', $product, null , ['class' => 'form-control']) !!}--}}
         <select name="status">
