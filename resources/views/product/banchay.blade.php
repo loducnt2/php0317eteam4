@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <h2 style="color: #17bf08; text-align: center; ">BÁN CHẠY</h2>
+    <h2 style="color: #17bf08; text-align: center; font-family: 'BreeSerif-Regular';">BÁN CHẠY</h2>
 
     <div class="product">
         <div class="container">

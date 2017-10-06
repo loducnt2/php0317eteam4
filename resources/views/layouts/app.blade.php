@@ -60,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="container">
         <div class="top-header-main">
             <div class="col-md-6 top-header-left">
-                <div class="drop">
+                {{--<div class="drop">
                     <div class="box">
                         <select tabindex="4" class="dropdown drop">
                             <option value="" class="label">Dollar :</option>
@@ -77,7 +77,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </select>
                     </div>
                     <div class="clearfix"></div>
-                </div>
+                </div>--}}
             </div>
 
 
@@ -272,12 +272,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <ul>
                     @if(isset(Auth::user()->id))
                         <li><a href="{{ url('account/detail/' . Auth::user()->id) }}"><p>My Account</p></a></li>
+                        <li><a href="{{ url('account/' . Auth::user()->id . '/edit') }}"><p>My Credit slips</p></a></li>
                     @endif
 
-                    <li><a href="#"><p>My Credit slips</p></a></li>
-                    <li><a href="#"><p>My Merchandise returns</p></a></li>
-                    <li><a href="#"><p>My Personal info</p></a></li>
-                    <li><a href="#"><p>My Addresses</p></a></li>
                 </ul>
             </div>
             <div class="col-md-3 infor-left">

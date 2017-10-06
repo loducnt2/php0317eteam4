@@ -22,7 +22,11 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 
+
+Route::resource('account', 'UserController');
 Route::get('account/detail/{id}', 'UserController@show');
+
+/*Route::get('account/{id}', 'UserController@edit');*/
 
 
 Route::get('cart', 'CartController@index');
@@ -46,6 +50,9 @@ Route::get('blog', 'ContactController@blog');                           /* chưa
 
 Route::get('supplier/detail/{id}', 'SupplierController@show');
 
+/*Route::resource('comment', 'Comment');*/
+Route::get('comment', 'Comment@index');
+
 
 
 
@@ -63,7 +70,7 @@ Route::group(['middleware'  => ['auth']], function (){
         Route::resource('admin/product', 'Admin\ProductController');
 
         Route::resource('admin/user', 'Admin\UserController');
-        Route::get('admin/account/detail/{id}', 'Admin\UserController@show');
+        Route::get('admin/user/detail/{id}', 'Admin\UserController@show');
 
         Route::resource('admin/orderdetail', 'Admin\OrderdetailController');
         Route::resource('admin/order', 'Admin\OrderController');

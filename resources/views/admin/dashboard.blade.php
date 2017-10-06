@@ -16,7 +16,7 @@
             <!-- Welcome -->
             <div class="col-lg-12">
                 <div class="alert alert-info">
-                    <i class="fa fa-folder-open"></i><b>&nbsp;Hello ! </b>Welcome Back <b> Cud Shop </b>
+                    <i class="fa fa-folder-open"></i><b>&nbsp;Hello ! </b>Welcome to <b> Cud Shop </b>
                     <i class="fa  fa-pencil"></i><b> </b>Support Tickets Pending to Answere. ;
                 </div>
             </div>
@@ -44,11 +44,12 @@
                         Phản hồi từ khác hàng
                 </div>
             </div>
-            <div class="col-lg-3">
+
+            {{--<div class="col-lg-3">
                 <div class="alert alert-warning text-center">
                     <i class="fa  fa-pencil fa-3x"></i>&nbsp;<b>2,000 $ </b>Payment Dues For Rejected Items
                 </div>
-            </div>
+            </div>--}}
             <!--end quick info section -->
         </div>
 

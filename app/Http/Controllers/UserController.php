@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Session;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\AuthIlluminate\Auth;
 
 class UserController extends Controller
 {
@@ -82,7 +85,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->last_name = $request->last_name;
+        $user->first_name = $request->first_name;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->gender = $request->gender;
+        $user->save();
+
+        /*Session::flash('success', 'Cập nhật thành công');*/
+        return redirect('/');
     }
 
     /**

@@ -142,7 +142,7 @@
 
                     <div class="tabs">
                             <div class="detail">
-                                <h3>2. Chi tiết sản phẩm</h3>
+                                <h3 class="h3_detail">2. Chi tiết sản phẩm</h3>
 
                                 <p align="justify" class="pText">
                                     <em class="do">Cud Shop</em> xin kính chào quý khách. Khi mua hàng của chúng tôi quý khách sẽ được:
@@ -171,29 +171,61 @@
                                 </p>
                             </div>
 
-                            <h3>3. Đánh giá phản hồi</h3>
+                            <h3 class="h3_detail">3. Đánh giá phản hồi</h3>
 
-                            {{--<table border="1px" width="80%">
-                                <tr style="background: #cccccc">
-                                    <td >Người mua</td>
-                                    <td >Phản hồi</td>
+                            <table border="1px" width="100%">
+                                <tr>
+                                    <th class="th_cmt">Người mua</th>
+                                    <th class="th_cmt">Phản hồi</th>
                                 </tr>
 
-                                @if(isset($comment))
-                                    @foreach($comment as $ite)
+                                @if(isset($cmt))
+                                    @foreach($cmt as $item)
                                         <tr>
-                                            <td>{{ $ite->content }}</td>
-                                            <td>{{ $ite->content }}</td>
+                                            <td class="td_cmt">{{ $item->name }}</td>
+                                            <td class="td_cmt">{{ $item->content }}</td>
                                         </tr>
                                     @endforeach
                                 @endif
-
-                            </table>--}}
+                            </table>
 
                             <p class="pText" style="color: black;">Bạn có câu hỏi với sản phẩm này? Đặt câu hỏi với shop.</p>
+
                         <form action="" method="get">
-                            <textarea rows="3" cols="100"></textarea>
-                            <input type="submit" name="btnsubmit" value="Gửi">
+                            {!! Form::open(['type' => 'POST', 'url' => 'comment', 'role' => 'form']) !!}
+                                {{--<textarea rows="3" cols="100"></textarea>
+                                <input type="submit" name="btnsubmit" value="Gửi">--}}
+                                <div class="form-group">
+                                    {!! Form::textarea('content', null, ['class' => 'form-control', 'name' => 'name',]) !!}
+                                    {!!  $errors->first('content', '<span id="content-error" style="color: red;" class="help-block help-block-error">:message</span>') !!}
+
+                                    <div class="form-group">
+                                        <label>Product_id</label>
+                                        {!! Form::text('product_id', null, ['class' => 'form-control', ]) !!}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>User_id</label>
+                                        {!! Form::text('user_id', null, ['class' => 'form-control', 'name' => 'name',]) !!}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        {!! Form::text('name', null, ['class' => 'form-control', 'name' => 'name',]) !!}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        {!! Form::text('email', null, ['class' => 'form-control', 'name' => 'name',]) !!}
+
+                                    </div>
+
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            {!! Form::close() !!}
                         </form>
                     </div>
                 </div>

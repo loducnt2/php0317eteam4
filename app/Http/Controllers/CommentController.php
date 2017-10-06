@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
+use App\Http\Controllers\Controller;
+
+
 
 class CommentController extends Controller
 {
@@ -14,7 +17,11 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $cmt = Comment::all();
+            echo "<pre>";
+        print_r($cmt->toArray());
+        die();
+        return view('product.detail', ['cmt' => $cmt]);
     }
 
     /**
@@ -24,7 +31,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +42,17 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$this->validate($request, [
+            'content' => 'required'
+        ]);
+
+        $c = new Comment();
+        $c->content = $request->content;
+
+        $c->save();
+
+        Session::flash('success', "Thêm mới thành công!!!");
+        return redirect('');*/
     }
 
     /**
@@ -57,7 +74,9 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        /*$cmt = Comment::findOrFail($id);
+
+        return view('product.detail', ['cmt' => $cmt]);*/
     }
 
     /**

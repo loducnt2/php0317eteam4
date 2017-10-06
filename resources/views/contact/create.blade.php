@@ -25,14 +25,14 @@
             <div class="contact-text">
                 <div class="col-md-3 contact-left">
                     <div class="address">
-                        <h5>Address</h5>
-                        <p>The company name,
+                        <h5>Giới thiệu</h5>
+                        <p>Tên Shop,
                             <span>Cud Shop,</span>
-                            Glasglow Dr 40 Fe 72.</p>
+                            Phố Nhổn - Minh Khai - Bắc Từ Liêm - Hà Nội.</p>
                     </div>
                     <div class="address">
-                        <h5>Address1</h5>
-                        <p>Tel:1115550001,
+                        <h5>Địa chỉ</h5>
+                        <p>Tel: 1115550001,
                             <span>Fax:190-4509-494</span>
                             Email: <a href="#">cudlo@gmail.com</a></p>
                     </div>

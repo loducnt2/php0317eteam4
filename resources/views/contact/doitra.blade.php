@@ -19,12 +19,16 @@
         </div>
     </div>
 
-    <h2 style="color: #17bf08; text-align: center; margin-bottom: 30px ">QUY ĐỊNH ĐỔI TRẢ</h2>
+    <h2 style="color: #06c;
+                text-align:center;
+                font-weight: bold;
+                font-family: 'Roboto', Helvetica, Arial,sans-senif;
+         ">QUY ĐỊNH ĐỔI TRẢ</h2>
 
     <div class="wrapper">
         <div class="left">
-            <div class="phan1">
-                <p><b class="indam">1. Thời hạn đổi/ trả sản phẩm</b></p> <br>
+            <div class="muc1">
+                <h3> 1. Thời hạn đổi/ trả sản phẩm</h3>
                 <p class="thut">
                     Nhằm đảm bảo quyền lợi người mua, sau khi nhận hàng nếu bạn không hài lòng và muốn đổi/ trả sản phẩm,
                     vui lòng liên hệ với Cud Shop trong vòng 24h kể từ khi nhận hàng.
@@ -39,7 +43,7 @@
                 <img class="anh1" src="{{ url('images/doitra.PNG') }}" alt="Đổi trả sản phẩm">
                 <br>
 
-                <p><b class="indam">2. Điều kiện đổi/ trả sản phẩm</b></p>
+                <h3>2. Điều kiện đổi/ trả sản phẩm</h3>
                 <p class="thut">
                     + Điều kiện chung bắt buộc:
                 </p>
@@ -60,35 +64,35 @@
             </div>
 
             <div class="cachthuc">
-                <p style="padding-top: 18px"><b class="indam" >3. Cách thức đổi/ trả sản phẩm</b></p>
-                <p style="margin-top: 10px">
+                <h3>3. Cách thức đổi/ trả sản phẩm</h3>
+                <p class="thut">
                     Đối với các khu vực nhà vận chuyển hỗ trợ đổi/ trả sản phẩm tại địa chỉ: Bạn đóng gói sản phẩm như nguyên
                     trạng lúc nhận và đợi nhà vận chuyển đến lấy hàng để đi đổi/ trả sản phẩm cho người bán.
                 </p>
-                <p>
+                <p class="thut">
                     Đối với các khu vực nhà vận chuyển không hỗ trợ đổi/ trả sản phẩm tại địa chỉ: Bạn đóng gói sản phẩm như
                     nguyên trạng lúc nhận và gởi qua đường bưu điện đến địa chỉ người bán.
                 </p>
-                <p>
+                <p class="thut">
                     Sau khi nhận được sản phẩm, người bán kiểm tra tình trạng sản phẩm thỏa điều kiện đổi/ trả sản phẩm thì
                     người bán sẽ tiến hành gửi lại sản phẩm đổi cho bạn, hoặc thông báo với Sendo.vn để hoàn tiền cho bạn.
                 </p>
-                <p>
+                <p class="thut">
                     Thời gian vận chuyển đổi/ trả sản phẩm tương đương như thời gian gởi sản phẩm (3-14 ngày tùy khoảng cách
                     giữa địa chỉ người bán và người mua hàng)
                 </p>
 
                 <img class="anh2" src="{{ url('images/banner-dt.PNG') }}" alt="Banner đổi trả sản phẩm">
 
-                <p>Địa chỉ đổi trả</p>
+                <p class="thut">Địa chỉ đổi trả</p>
                 <p class="ct-thut">. Hà Nội </p>
                 <p class="ct-thut">. Đà Nẵng </p>
                 <p class="ct-thut">. TP HCM </p>
             </div>
 
             <div class="muc4">
-                <p><b>4. Tôi có thể đổi sang sán phẩm khác được không?</b></p>
-                <p align="justify">
+                <h3>4. Tôi có thể đổi sang sán phẩm khác được không?</h3>
+                <p class="thut">
                     Bạn có thể thỏa thuận với người bán nếu người bán đồng ý cho bạn đổi sang sản phẩm khác. <br>
                     Sendo sẽ chuyển 100% số tiền bạn đã thanh toán lúc mua sản phẩm ban đầu cho người bán.
                     Trong trường hợp phát sinh tiền chênh lệch giữa sản phẩm cũ và mới,
@@ -97,9 +101,9 @@
             </div>
 
             <div class="muc5">
-                <p><b>5. Cước phí đổi/ trả sản phẩm tính như thế nào?</b></p>
+                <h3>5. Cước phí đổi/ trả sản phẩm tính như thế nào?</h3>
 
-                <p style="margin-top: 15px">
+                <p class="thut">
                     Tùy thuộc vào nguyên nhân đổi/ trả hàng, Cudshop sẽ ra phán quyết thu phí của bạn hay người bán: <br><br>
 
                     – Cudshop sẽ thu phí vận chuyển từ bạn nếu người bán đã giao sản phẩm đúng như yêu cầu của bạn nhưng bạn muốn đổi/ trả.
@@ -109,8 +113,8 @@
             </div>
 
             <div class="muc6">
-                <p><b>6. Khi tôi trả hàng thì khi nào tôi nhận được tiền và hoàn tiền khoản nào?</b></p>
-                <p align="justify" style="padding-top: 8px">
+                <h3>6. Khi tôi trả hàng thì khi nào tôi nhận được tiền và hoàn tiền khoản nào?</h3>
+                <p class="thut">
                     Sau khi bạn trả hàng và Shop xác nhận đã nhận được hàng còn nguyên vẹn, Sendo.vn sẽ hoàn tiền cho bạn
                     thông qua tài khoản Senpay (áp dụng cho cả 2 hình thức bạn đã thanh toán Senpay hay COD).
                     Bạn sẽ nhận lại 100% số tiền đã thanh toán cho sản phẩm, không bao gồm chi phí vận chuyển và các khoản
@@ -119,8 +123,8 @@
             </div>
 
             <div class="muc7">
-                <p><b>7. Tôi muốn hoàn trả tiền mặt có được không?</b></p>
-                <p  align="justify" style="padding-top: 8px">
+                <h3>7. Tôi muốn hoàn trả tiền mặt có được không?</h3>
+                <p class="thut">
                     Cudshop.vn chỉ hoàn trả qua tài khoản Senpay. Bạn có thể vào tài khoản Senpay để rút tiền về tài khoản
                     ngân hàng của bạn, sau đó rút tiền mặt hoặc để tiền trên Senpay để sử dụng thanh toán các tiện ích
                     khác của Senpay như mua hàng trên Cudshop.vn, thanh toán tiền điện, nước….

@@ -845,7 +845,7 @@ a.mask {
 .infor-left h3 {
     font-size: 1.5em;
     color: #000;
-    margin: 0 0 0 0;
+    margin: 10px 0 0 0;
     font-family: 'BreeSerif-Regular';
 }
 
@@ -1572,8 +1572,11 @@ a.mask {
 }
 
 .contact-right input[type="text"] {
-    width: 32.51%;
-    margin: 0px;
+    /*width: 32.51%;*/
+    width: 60%;
+    margin: 10px 0 10px 0;
+
+
     color: #000;
     background: none;
     padding: 15px 10px;
@@ -1583,6 +1586,7 @@ a.mask {
 }
 
 .contact-right textarea {
+        margin-left: 0px;
     width: 100%;
     color: #000;
     resize: none;
@@ -1595,7 +1599,7 @@ a.mask {
     font-family: 'Lato-Regular';
 }
 
-.submit-btn input[type=submit] {
+.submit-btn button[type=submit]{
     color: #000;
     padding: 9px 42px;
     font-size: 15px;
@@ -1607,7 +1611,7 @@ a.mask {
     outline: none;
 }
 
-.submit-btn input[type=submit]:hover {
+.submit-btn button[type=submit]:hover {
     background: #73B6E1;
     border: 1px solid #73B6E1;
     color: #fff;
@@ -1626,7 +1630,8 @@ a.mask {
 }
 
 .contact-right input[type="text"]:nth-child(2) {
-    margin: 0 7px;
+        margin: 0 10px 10px 1px;
+    /*margin: 0 7px;*/
 }
 
 .address p {

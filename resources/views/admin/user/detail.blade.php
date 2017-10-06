@@ -5,16 +5,23 @@
 @section('content')
 
 
-                <h2>USER PROFILE</h2>
-                <table border="1px" style="width: 60%; height: 200px; margin: auto; background :#ccc; text-align: center;">
+    <h1 style="text-align: center;
+               margin-top: 0;
+                margin-bottom: 30px;
+                padding-top: 70px;
+                font-weight: bold;
+            ">USER PROFILE</h1>
+
+                <table border="1px" style="width: 60%; height: 165px; margin: auto; background :#ccc; text-align: center;">
+
                     <tr>
-                        <td>Name</td>
-                        <td>Email</td>
-                        <td>Last Name</td>
-                        <td>First Name</td>
-                        <td>Phone</td>
-                        <td>Address</td>
-                        <td>Gender</td>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Gender</th>
                     </tr>
 
                     <tr>

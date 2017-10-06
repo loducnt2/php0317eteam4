@@ -12,12 +12,17 @@
     border: 1px solid black;
 
 }
-.indam{
+.wrapper h3{
     font-weight: bold;
-    font-size: 20px;
+    text-transform: uppercase;
+    color: #06c;
+    font-size: 21px;
+    font-family: 'Roboto', Helvetica, Arial,sans-senif;
 }
-p{
-    color: #675858;
+.thut{
+    margin-left: 10px ;
+    text-align: justify;
+    color: #000;
     font-size: 17px;
     line-height: 28px;
     font-family: Consolas;
@@ -33,22 +38,17 @@ b{
     float: left;
 }
 
-.phan1{
+.muc1{
     width: 95%;
-    height: 1170px;
-    border-bottom: 1px dashed red;
+    height: 1150px;
+    /*border-bottom: 1px dashed red;*/
     margin:auto;
 }
-.thut{
-    margin-left: 10px ;
-    text-align: justify;
-    color: black;
-    font-size: 17px;
-    margin-top: 10px;
-}
+
 .thut a{
-    color : #ccb75a;
+    color : red;
     text-decoration: none;
+    font-size: 16px;
     margin-top: 10px;
 }
 .thut a:hover{
@@ -61,8 +61,7 @@ b{
 /*------------------*/
 .cachthuc{
     width: 95%;
-    height: 920px;
-
+    height: 885px;
     margin:auto;
 }
 /*.cachthuc p{
@@ -77,25 +76,29 @@ b{
     height: 350px;
 }
 .ct-thut{
-    margin-left: 10px;
+    margin-left: 20px ;
+    color: #000;
+    font-size: 17px;
+    line-height: 28px;
+    font-family: Consolas;
 }
 /*-----------------*/
 .muc4{
     width: 95%;
-    height: 205px;
+    height: 180px;
     margin:auto;
 }
 
 /*-----------------*/
 .muc5{
     width: 95%;
-    height: 294px;
+    height: 268px;
     margin:auto;
 }
 /*-----------------*/
 .muc6{
     width: 95%;
-    height: 240px;
+    height: 210px;
     margin:auto;
 }
 /*-----------------*/
