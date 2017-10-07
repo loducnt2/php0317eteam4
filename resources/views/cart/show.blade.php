@@ -54,6 +54,8 @@
                             <li><span style="color: orangered">Product Name</span></li>
                             <li><span style="color: orangered">Unit Price</span></li>
                             <li><span style="color: orangered">Quantity</span></li>
+                            <li><span style="color: orangered">Amount</span></li>
+                            <li><span style="color: orangered">Delete</span></li>
 
                             {{--<li style="color: orangered">Action</li>--}}
                             <div class="clearfix"> </div>
@@ -68,10 +70,13 @@
                                     </li>
                                     <li><span class="name">{{ $item->name }}</span></li>
                                     <li><span class="cost">{{ number_format($item->price) }}</span></li>
-                                    <li>{{ $item->qty }}</li>
-                                    <li>
-                                        {{ number_format($item->price * $item->qty) }}
-                                        <?php $totalAmount += ($item->price * $item->qty) ; ?>
+                                    <li><span class="cost">
+                                            <input type="text" value="{{ $item->qty }}">
+                                        </span></li>
+                                    <li><span class="cost">
+                                            {{ number_format($item->price * $item->qty) }}
+                                            <?php $totalAmount += ($item->price * $item->qty) ; ?>
+                                        </span>
                                     </li>
                                     <li><span class="cost">
                                         <a href="{{ url('cart/remove/'. $item->id) }}"><img src="{{ url('images/close.png') }}" /></a></span>

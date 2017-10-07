@@ -101,6 +101,7 @@ class ProductController extends Controller
         return view('product.detail', [
             'product' => $product,
             'related' => $related,
+            'id' => $id,    /* Cái chỗ id cho bình luận bằng faceboook*/
             /*'comment' => $comment,
             'supplier' => $supplier*/
         ]);

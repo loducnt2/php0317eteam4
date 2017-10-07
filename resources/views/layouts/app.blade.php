@@ -90,7 +90,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <?php $total = 0; ?>
                                 @if(Cart::content())
                                     @foreach(Cart::content() as $item)
-                                        <?php $total += $item->price; ?>
+                                            <?php /*$total += $item->price; */?>
+                                            <?php $total += ($item->price * $item->qty) ; ?>
                                     @endforeach
                                 @endif
                                 {{ number_format($total) }} VNĐ
@@ -210,16 +211,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 </div>
                             </div>
                         </li>
-                        <li class="grid"><a href="{{ url('discount') }}">Khuyến mại</a>
+                        <li class="grid"><a href="{{ url('discount') }}">Khuyến mại</a></li>
+                        <li class="grid"><a href="{{ url('banchay') }}">Bán chạy</a></li>
+                        <li class="grid"><a href="{{ url('blog') }}">Blog</a></li>
+                        <li class="grid"><a href="{{ url('contact/create') }}">Contact</a> </li>
 
-                        </li>
-                        <li class="grid"><a href="{{ url('banchay') }}">Bán chạy</a>
-
-                        </li>
-                        <li class="grid"><a href="{{ url('blog') }}">Blog</a>
-                        </li>
-                        <li class="grid"><a href="{{ url('contact/create') }}">Contact</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="clearfix"> </div>

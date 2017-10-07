@@ -30,6 +30,7 @@
             border: 1px dotted red;
             margin: auto;
             padding: 10px;
+            font-family: Consolas;
         }
         .wrapper b{
             margin-left: 40px;
@@ -38,9 +39,10 @@
         .wrapper h2{
             text-align: center;
             margin-bottom: 30px;
-            color: red;
-            font-family: "Book Antiqua";
+            color: #06c;
             text-transform: uppercase;
+            font-weight: bold;
+            font-family: 'Roboto', Helvetica, Arial,sans-senif;
         }
         .wrapper span{
             font-size: 23px;
