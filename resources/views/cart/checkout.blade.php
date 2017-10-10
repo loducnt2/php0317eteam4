@@ -29,7 +29,7 @@
 
             <div class="ckeckout-top">
                 <br class="cart-items">
-                    <h3 style="color: greenyellow;">1. My Shopping Bag</h3>
+                    <h3 style="color: #17bf08;font-family: FontAwesome;font-weight: bold;">1. My Shopping Bag</h3>
                     <script>$(document).ready(function(c) {
                             $('.close1').on('click', function(c){
                                 $('.cart-header').fadeOut('slow', function(c){
@@ -61,6 +61,8 @@
                             <li><span style="color: orangered">Product Name</span></li>
                             <li><span style="color: orangered">Unit Price</span></li>
                             <li><span style="color: orangered">Quantity</span></li>
+                            <li><span style="color: orangered">Amount</span></li>
+                            <li><span style="color: orangered">Delete</span></li>
                             {{--<li><span>Action</span></li>--}}
                             <div class="clearfix"> </div>
                         </ul>
@@ -74,12 +76,15 @@
                                 </li>
                                 <li><span class="name">{{ $item->name }}</span></li>
                                 <li><span class="cost">{{ number_format($item->price) }}</span></li>
-                                <li>{{ $item->qty }}</li>
-                                <li>
-                                    {{ number_format($item->price * $item->qty) }}
-                                    <?php $totalAmount += ($item->price * $item->qty) ; ?>
+                                <li><span class="cost">
+                                            <input type="text" value="{{ $item->qty }}">
+                                        </span></li>
+                                <li><span class="cost">
+                                            {{ number_format($item->price * $item->qty) }}
+                                        <?php $totalAmount += ($item->price * $item->qty) ; ?>
+                                        </span>
                                 </li>
-                                <li><span class="name">
+                                <li><span class="cost">
                                         <a href="{{ url('cart/remove/'. $item->id) }}"><img src="{{ url('images/close.png') }}" /></a></span>
                                 </li>
                                 <div class="clearfix"> </div>
@@ -94,7 +99,7 @@
                     </div>
 
 
-                    <h3 style="color: greenyellow; font-family: FontAwesome; font-weight: bold">2. Thông tin người nhận</h3>
+                    <h3 style="color: #17bf08; font-family: FontAwesome; font-weight: bold">2. Thông tin người nhận</h3>
 
                    {{-- {!! Form::open(['method' => 'POST', 'url' => 'cart/checkout']) !!}--}}
 
@@ -134,7 +139,7 @@
 
                             <div class="form-group">
                                 <label class="control-label col-md-12"  for="note">Ghi chú</label>
-                                <div class="col-md-10">
+                                <div class="col-md-6">
                                     <textarea name="note" rows="5" cols="150" class="form-control" placeholder="Enter note"></textarea>
                                     {!! $errors->first('note', '<span id="note-error" style="color:red;" class="help-block help-block-error">:message</span>') !!}
                                 </div>

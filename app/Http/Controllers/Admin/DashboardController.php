@@ -17,6 +17,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
+
+        $orders = Order::
+
+        $products = Product::select('products.*')
+            ->where('discount','>', '0')
+            ->paginate(10);
+
+
         $dem = User::count();
 
         $order = Order::count();
@@ -26,7 +34,8 @@ class DashboardController extends Controller
         return view('admin.dashboard', [
             'dem' => $dem,
             'order' => $order,
-            'contact' => $contact
+            'contact' => $contact,
+            'orders' => $orders
         ]);
     }
 

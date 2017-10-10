@@ -53,6 +53,7 @@
                                     </div>
 
                                 </div>
+
                                 <table class="table table-striped table-bordered table-hover dataTable no-footer"
                                        id="dataTables-example" aria-describedby="dataTables-example_info">
                                     <thead>
